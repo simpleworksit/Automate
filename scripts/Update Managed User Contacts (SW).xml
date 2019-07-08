@@ -1,0 +1,57 @@
+﻿<LabTech_Expansion
+	Version="190.161"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6325</ScriptId>
+				<FolderId>68</FolderId>
+				<ScriptName>Update Managed User Contacts (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-05-03
+Description: This script updates contact flags making them Active and Managed in the database if they are in the Managed Users OU. If they have been removed from the OU then it makes the contact flags unchecked. This script is intended to be ran against the Automate server every day.
+
+Update By: Shea Bryarly
+Updated: 2019-06-17
+It also will send an email to techstaff@simpleworksit.com to let us know when new users are added and gives us a chance to verify if the user is legit. Sometimes service accounts are added which shouldn't be.
+
+Update By: Shea Bryarly
+Updated: 2019-07-01
+Added an additional loop to send an email when an account is missing the last name field in the contact. This means that the account is most likely a service account. If it is an account that represents an actual user then we need to input the last name of the contact. Last I heard, everyone has last names..</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyCbW0pQlF/8uFkTFe0xWyCUtaQv27aVFoZ6G2ZlvYfAcHMWO9ra3Bu9jS0aimBWvQ9w1Q+wpGUCxcHh4tyFNDJljCt6OGavtyGCTMQVSM12pspIlu9QoFl28uRTa/kGpC02cnv4fvvlpCN48yyLXoHJeeLJcStJckycOAE5p+6It5D9+BlAsp6xXHzeR1y7aAAAA</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAO1aXXPaOBR9DjP8B+1DSrsTCDaElE3CwAZI2SWQDbD72BG2ADXG8kpy2P77vZINmC83JWFSUp7ie68sXx2Jo3ukXHYsTj1ZxRKXkgmELgNbaAPM2n+SYxWtU+LYAp1OA3eY4zGRhEd8Nw7rYyfiCDr7GxpR5paMy9NFx0KrG5/apf7HQr6YNfPpgk1w2jBIMV0kNklns1nLLOIBOcvmp73oF3TOp9Gkw+46knizUVQsGSYQPoX+uu9qu2GrWMSKDtJYGrS5ZOeW7PySfRbBg3FZykK+6m/ou2aupK5PlH/2HMbaoknHVL8yfQwjDdcmrsR6MBCNmlFI5ijEwGLGwZIrbgam1B0RNKBcSOQw5iFBXFgiZIwpLALJkCTWCAmJBwNlOUQiOSJj9OCyCTxhbXKCXDJBvlArSTsn1HFQnyBs28RG1FWt0Bi7eAhm0G7Ime9lLk/DNH7a2TGzMZNjrMdn5jcXcSpd+5xDmvdsEjbIfRdwxj4BZxQLMch1as3adTeZOLIg8YzKHluyUQXHSaPe6jWb73Wgrla+Cyx4glKpD6jSQSntaoErtdy4iZfbKs+sqeXQjDJ05JqNPex+hUAyUb9v30KDMAmh4qo/cP3RbrSQ5/hD6n7G9ufglwFhX3CIHrVbaDF9dKVCC8PRXVw7FEAOenbowqs6ot9U+U3N1W+Dm1OiuyA6N9WF+hjrfyGWvOnpPiCUac8canD/fKrd16C5ilSpgEUy9KkYEVtD0Wz8WUOp43bv6jb89ffUGI8VYJVWNcjRCoYzcPBQoHeOvHg3lBcotxNuMPdqiccy929NIOx0R2Iu0xuI4plg5fYJrPM4Il0hxmVGLWxg1GPxr2ND7SSI5GxiMd+Vx+u5NZyPmmvPZiMfi27+pdE1d8q25zHwzkHaAG95PgHl9Uh/59I82yfwzHwMdqrC0gVWWdCx55AJ4w+CKlYcbwCzBcVWlE5RRZVZGxbwJ+I4DHXmXaOO73kA3Yli7+6IhtUegoc+AfZWJaCERwvDdoTKMLWzTbKszek2WEYDzsbaFe525aXCT9WPGwo/1ICCUn0cikPCOeOwFRFYQOpNToQIgpVO5S4T5IndB/HLVlVNYZ+WipGNUTHrfkbLiyO7YR0YG1hrhRnjSet8r8A0X3f//LhP++dTio3o5vayUBXfDlRKUQsCRa0dSGrgsQHwm1LWil7XamvVwMLSGqkWAU9OqBwxH2Q50C1SfCt2o5aNg1zeVi4f9PIu9bKD++oXMk1mRTdP4y+gn2ef2lZHr+byinp6ijv0n0rthjPeqIw2d4PWQUdvp6PNJ5WkxkFIP2dx/sxKWjEl0sR6S4VQtVddSdoot/4QstpmsJO4TKIRfgSJPK8Jkcc838ESkmXBLUt4mIoa1QzSaXic9XHf+YrGBLtidmmDsKV/hSpBDMnxR2rNnRiKVwHlp2Prz4KiX3uJ0+6FQn7+Jice6He9i2IXvNLHjm59MlX41AUryGE+DiiH8SOjNhoSqfa8QP9PMHdnNTPCQ0zdZx8HGIfzgBc8DzDe6IHAjiqBN3kisCOs3tCRwO/EYRPFtAFTak7s/NVEvge7PVFnAJKM1f6wSOI7UvzmXin+Qly91LurVro1FOpWrRKTiU6tG/Us3i9eodxcZM2azBUiiLlk4j3EAkWMfkVKjqK5R0m5FZEcStZ1d7zfuuR9kkrddM37BH367YveJyrToylqW2hTLf+lkUx8iAjV1cmZX/5eqC9uM7vZ2NlttbuHGf4hZjh7sRtue40zuakd/gve/5X0Pe+RJwAA</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>b8649024-6dea-11e9-9ede-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>68</FolderID>
+					<ParentID>47</ParentID>
+					<Name>System Automation</Name>
+					<GUID>9db0454c-e91d-49a1-9f90-6571359c1d36</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>47</FolderID>
+					<ParentID>0</ParentID>
+					<Name>_System Automation</Name>
+					<GUID>68c423ca-41a6-4fae-a052-08a4fd27ea53</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
