@@ -1,0 +1,34 @@
+﻿<LabTech_Expansion
+	Version="190.161"
+	Name="LabTech Search Expansion"
+	Type="Search">
+	<Search>
+		<NewDataSet>
+			<Table>
+				<SensID>1356</SensID>
+				<Name>Service - Managed Users</Name>
+				<SQL>SELECT DISTINCT 
+          contacts.contactid, 
+          CONCAT(contacts.lastname, ', ', contacts.firstname) AS 'Contact Name', 
+          locations.name                                     AS 'Location Name', 
+          clients.name                                       AS 'Client Name', 
+          contacts.contactflags as `ContactFlags (contacts)`
+FROM 
+          contacts 
+LEFT JOIN locations 
+       ON locations.locationid = contacts.locationid 
+LEFT JOIN clients
+       ON clients.clientid = contacts.clientid 
+WHERE
+        (((contacts.ContactFlags &amp; 3) = 3))
+GROUP BY contacts.contactId
+ORDER BY contacts.lastName</SQL>
+				<QueryType>21</QueryType>
+				<ListDATA>ContactFlags (contacts)||=|3|=||=|^Select||=||=||=|^Select||=||=||=|^Select|||||||^</ListDATA>
+				<FolderID>7</FolderID>
+				<GUID>34a4c04e-be2d-4e41-83c6-e11de62dff65</GUID>
+				<SearchXML></SearchXML>
+			</Table>
+		</NewDataSet>
+	</Search>
+</LabTech_Expansion>
