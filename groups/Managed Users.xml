@@ -1,0 +1,64 @@
+﻿<LabTech_Expansion
+	Version="190.161"
+	Name="LabTech Group Expansion"
+	Type="Group">
+	<Group>
+		<NewDataSet>
+			<Table>
+				<GroupID>1854</GroupID>
+				<ParentID>1</ParentID>
+				<Parents>,1,</Parents>
+				<Children>,</Children>
+				<depth>1</depth>
+				<Name>Managed Users</Name>
+				<FullName>Service Plans.Managed Users</FullName>
+				<Permissions>0</Permissions>
+				<Template>0</Template>
+				<AutoJoinScript>0</AutoJoinScript>
+				<Master>2</Master>
+				<LimitToParent>0</LimitToParent>
+				<Control>0</Control>
+				<ControlID>0</ControlID>
+				<Notes></Notes>
+				<MaintenanceID>0</MaintenanceID>
+				<MaintWindowApplied>2019-02-07T13:13:02-07:00</MaintWindowApplied>
+				<GroupType>5</GroupType>
+				<Priority>5</Priority>
+				<GUID>0a1160c1-def9-11e8-b4d2-000c29afe504</GUID>
+				<NetworkJoin>0</NetworkJoin>
+				<NetworkJoinOptions>0</NetworkJoinOptions>
+				<ContactJoin>1356</ContactJoin>
+				<ContactJoinOptions>1</ContactJoinOptions>
+			</Table>
+		</NewDataSet>
+		<Search>
+			<NewDataSet>
+				<Table>
+					<SensID>1356</SensID>
+					<Name>Service - Managed Users</Name>
+					<SQL>SELECT DISTINCT 
+          contacts.contactid, 
+          CONCAT(contacts.lastname, ', ', contacts.firstname) AS 'Contact Name', 
+          locations.name                                     AS 'Location Name', 
+          clients.name                                       AS 'Client Name', 
+          contacts.contactflags as `ContactFlags (contacts)`
+FROM 
+          contacts 
+LEFT JOIN locations 
+       ON locations.locationid = contacts.locationid 
+LEFT JOIN clients
+       ON clients.clientid = contacts.clientid 
+WHERE
+        (((contacts.ContactFlags &amp; 3) = 3))
+GROUP BY contacts.contactId
+ORDER BY contacts.lastName</SQL>
+					<QueryType>21</QueryType>
+					<ListDATA>ContactFlags (contacts)||=|3|=||=|^Select||=||=||=|^Select||=||=||=|^Select|||||||^</ListDATA>
+					<FolderID>7</FolderID>
+					<GUID>34a4c04e-be2d-4e41-83c6-e11de62dff65</GUID>
+					<SearchXML></SearchXML>
+				</Table>
+			</NewDataSet>
+		</Search>
+	</Group>
+</LabTech_Expansion>
