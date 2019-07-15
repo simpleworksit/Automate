@@ -1,0 +1,244 @@
+﻿<LabTech_Expansion
+	Version="190.203"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6333</ScriptId>
+				<FolderId>257</FolderId>
+				<ScriptName>Configure Maintenance Mode EDF Settings (SW)*</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-07-02
+Description: This script sets the EDFs for the Maintenance Mode tab. It is created to mass set those fields for many computers. Next it schedules the maintenance modes.
+
+The Maintenance Mode Dates need to be in YYYY-MM-DD ISO time formatting.
+The Recur Yearly EDF needs to be either 1 or blank.
+
+Updated By: Shea Bryarly
+Date: 2019-07-09
+Description: Added the functionality to allow the script to start on the current day. The end date must still be in the future. Also I added a check to make sure the dates start today and that the script won't over write the dates if the Recur Yearly EDF is set.
+
+IT Glue Article:
+https://sw.itglue.com/337469/docs/3606160#version=published&amp;documentMode=view</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oyKYYNWXJRUUQBdHiPTRbCJS0pA3Yv5cWhXoaZmfewuDVVxR6OtrBGizHjoxEMSs+Uji0KQwUDaBYODy9Ox8nhkyZqHd2zNglNSODPGM5SM32hVQFKHa/oVi08VlF3w0vir1vw/T2//DNz8k7o6wD2JHi2sGWS0maW1VrDgBVrm1NCjY/fgZQLMesVx/BcRzl3AAAAA==</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAN1bXW/iOBR9X2n/g19Qixa3+SaMKtSqQBVpmFYDu6M+rUziQHZCwibOtP33e50ECEyTdlinKFSViuMP4pPre86x06uJHXkrNiCM9H//DaGrrBynBSgOn1lEeO3Io74To8t1xQOJyJIyGsX9CSMR6wwDp/OV2kmEHimJ/Jery0KTvNOdH86IXxgl+7a/oIkXBn356nL3wk6ru8Rz+jpxJKlLddxzJAPLMu1hors9LEmSrfSIS3VJW4+SdkgndVmcVT7chNHV5sZubJbfQP4pvz5KgrRsObyuUCqiIO+houyV1b2ytlfWC3iEEetLcL/8b37tNgyYFySUX998zuvu48/e0ku7rD/mNVbg0ICRdDJQWywWIdmiUAGLUgWLpJYD09fN2cyUDQ1TXXGwpro2PC5Dx5pGTaNLeqo7m+WBIu9i2L+2w+UqgeixBtd5E2UX1v5tEkU4jTm8E3Pq6cLdlSrQLsNjH1qlBE/5dfz6n4pj4jGNYzKneVutElu5SdgqVdjKcgmYk+Hn4e0UDW6mw79H91/HN9Pzs+s0JV6fde6G0/VF3qBzZk3uz9rtEvzTXgfFsCIaZ7kZOAPp/DLK0OcgjNUmYVyZJ4px9s7csE9h/U/fojCYY5AGFI/CaEnYLyUG7WTA3IbTkaDUmwSlWQVll9pdTTEMbKozFWuGTvCsq+rYdRXVUR3DIEQ5XC3kSfmgtW+cDMam43ZdV3ewKvco1pSZgnuyqmLTMKWuS2Y9jafngzHmCfkghLsng3C9mve66LEOg9psEtTVYqEER6lKYOEv4dNBuPWahJus9iqAs1y0JF7AaEACm6KY44K8GLHQIS+ILWiA7AUJ5usqB7gJKlHkzRcMBeHTxevI/0/nKwv3YrVC3FWqRFamV6fWeDiZ3owfBtZodD62vvwJAhVBCJ63O2hjFNroD6TWA6lwC3Y0pRX/60c0Tvwy6aqVrHqpzNZm6SDVXVbwg/ie8z5TK9xtqUdLBOUYCA5D4e6pTsyEOdT1Om894tYStxzUmp6Jd/+ycDd1PHBLsJVrYXRZuHeqFbiqhZwCgfg65jw+o24YUU7kCNRiBPeTUvgFmlAGs5rv0ToQOjrPuahdE7ULt1DHS5pgcjLolknMAGtEXNDsBUxrglC4R6r1YOBwdbTdP0X5Fl+7HkCFO6Gjbf0L10YA+wHKSLhFqjVCKxf5gPpghYouyXO3Rilb8Tu5tZYQVU7ndGqfqt97KlUaoukTwuPtE3pXjCqNOpPiOb8UUUNxNGISkx+Gk9LD8DqiUrgDqhXDKuEk+OxeEe5zjpcByzhAcCw1y7y8pQtfUeCTrS5EP0nHeUQJpxK2IMFPrR98SmKKYCrQgqD0IWyGgMGevUzMp1O5QPU8n0Z5pA9d6ydkaUrJVHAwNcvCVEJ24zh88aloCXfNKN88RwUXDqUl+U5RnKRpgLB0dQ+fqQ2NUQFoNA4d6H0++dZG2X1mMjNGTx5beFlWSHNGxHfkL9B0AfkFfv/JUkiaAZIVN6BA+TXJ0EY5pUZszCvN8kr16NB+a2NcW+97W+Ktl3Qa5Zc+kq3UZvmearaqeCFR7CpVG3XWU6lOp0AjxZcH0HAw4jRiL6j9nTqcV4CklpQEcUo5+xSVclCMCNCZH/IeCLgJRC4K6DNDLzDmBbJc9BImcAVq+XFxwtkLviNTqB20ygStDX+ijA/hHggXtNSnLJPLbsI4Ze4z5S5RZgNmvJqOv6BO4vNZ1BMGjTq++tC00ij79kZaeetFPMFBJdxZ1fp2dOVmae56g5DxrGBN7nlmAABR6KJH+MHjMR4MNo42ojjLDXS9krnWzcrJagWg0NwnZ8PUtayFO7iTUQvHMGrrcv7fSP8B73lMnZw0AAA=</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>5ad007e5-9d06-11e9-a5f9-000c29afe504</ScriptGuid>
+				<ScriptFlags>1</ScriptFlags>
+				<Parameters>Start,End,Recur Yearly</Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>729</ID>
+					<Form>1</Form>
+					<Name>Recur Yearly</Name>
+					<Sort>6</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Maintenance Mode</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill></Fill>
+					<LtGuid>58bb8164-e52d-43fc-a565-44e867a93fbb</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>727</ID>
+					<Form>1</Form>
+					<Name>Next Maintenance Mode Start</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Maintenance Mode</Section>
+					<UnEditable>1</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Date must be in YYYY-MM-DD formatting.</Fill>
+					<LtGuid>7ec74266-83b3-465a-b735-ff23d3d66aa2</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>728</ID>
+					<Form>1</Form>
+					<Name>Next Maintenance Mode End</Name>
+					<Sort>1</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Maintenance Mode</Section>
+					<UnEditable>1</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Date must be in YYYY-MM-DD formatting.</Fill>
+					<LtGuid>8df7ff5d-319e-42b2-9133-86807fab9420</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<PackedScript>
+			<NewDataSet>
+				<Table>
+					<ScriptId>6334</ScriptId>
+					<FolderId>257</FolderId>
+					<ScriptName>Execute Maintenance Mode (SW)*</ScriptName>
+					<ScriptNotes>Author: Shea Bryarly
+Date: 2019-07-02
+Description: This script schedules Maintenance Mode Windows. It is a function script that shouldn't be scheduled directly. If the Recur Yearly settings are set to true then this script will schedule itself a year out at the beginning of the next start date.
+
+IT Glue Article:
+https://sw.itglue.com/337469/docs/3606802#version=published&amp;documentMode=view</ScriptNotes>
+					<Permission>0,</Permission>
+					<EditPermission>0,</EditPermission>
+					<ComputerScript>1</ComputerScript>
+					<LocationScript>0</LocationScript>
+					<MaintenanceScript>0</MaintenanceScript>
+					<FunctionScript>1</FunctionScript>
+					<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oaBLb0pQlFxVBFESL96XZQkDSkjZg/15aFOppmJ15CwMX15Af6IAjGqinnoyEdFG4R7/voh8pGAHpysHx3bswM2TqSIPFKWHn+JqYUAlTQmpWVrusUgW7XSFdteHRBNePTwqD6/z89v/wzU/RWVMom2GJJddWIJeSNMe81VwI0SiNLeUi+/ELAOl6zHbzARq4TPvcAAAA</LicenseData>
+					<ScriptData>H4sIAAAAAAAEAOWaXXPaOBSGr5eZ/IdzkwF2Y4LlD0wny0CD6TITSAZoM71qZSwHzxqbyiIk/34lY1Ig4BJqh/HsFTqSLMuPrXPOK3E1HFN3xtqY4cZZAeBqaYeRwU3ziVEsWjsu8ewQLlcNd5jiKWGErtV98gILe2sVy8G+8E5u4Dfkq8vNio1en+au3dCRrWIDG1LdrmJJlkldwppTl6rV6hjVsUO0qroaJbogmvPl+qTj4YaMzF6eojVm8QTiUlzfmfuR3bVF25q1/pDy1kOjLVvZstUtW1vjEVDWqPL5it+47jrwmevPiah/Kcdtt+GNO3WjS1bFuKXr28RnOHoY3rpuriP5SSEBC0rCUlX2g2nUyLimIl2XDMVSJFXXsGTVFE1yHKTYiq3rGPPB484bDBvNcTCdzfn302034y5oE2tjyDBlcZvyf0Vs2E7NcTRbUuQ6kVRkIakuK4pk6Ea15mCrrqLq8YhN3z4KsJwrwDWUAHho3pjXI+h2oNS/vS+V4aM5ujfNPhSb0QfYLEKr3+YWZ9UsXkBxROdE/Ha4qyPF8m74v+kjUJ741qoJeMMfHiXh3GN7PlK058sUlHd/mo0P0XuRetj1GfGxPyZSL7BXvdVEsEraYFGGYJGaBNaiz5h6z83Qnc48sgjov6HLKnzN7yFtUhpQWLhsAsvpfADziYy5g4A1lCBQQmn4sfznPrccXQwPAQMWAIZwJkoTzMBlEE6CuWeDTx4JhQciulQqcOcRHBKg5NEli8pRHkfN04uTUf3d0gktV2CUBDC/WNjpelg9bWxqlo4gidqQMD7dB1hFe3D91wuauZ4HUQirQCY8a3nieVBGMOr2zOGo1btrdzudUq/b/zwyL6AfLErli1U6kE30N/LEEiEjgeWOHHQ7Lp2/pAjnuyPOG+nV80QvOfnXDMsyZF2ViIZsSVWcMZfDuiapKjH0Gq4rjmUdn/wPePCn0lcisojjVECudFZimrqDxaGZqrwvTR2QkDBpGdPamB2WoMq5klaJgelVEHJD8HmuSAVrykNWBa55YihKGwHr3vXtYAFmuxNWMvGvcq7klZH03Wa6A/NWrKmLq5NhzXTX5a1YU5c+mW62vKP0kVPXPpmSSdY+e6JFyp4vddmTqVo8IE0/K/zRbo3Mb612u/SldfOZp+jd/sgc8DLI8NVsDcrQGkKxTxZLuMWzQmdw2+PXjechC6Y2eax8f/xGxEGHIw45bMzw97PCWeH+H3Ngin7xgnZt+BvOf1rnvE1sDUZnJNH5SB9PCe/Db/bEXmuw5e2zea+py68s3+vpItoOsfHGlDd1bZanBcQ17+mWj7h5NosndcV4ssWT7WnR7y4elLpezHTx5PLoE6WuHzM94ThUP05j/bimHYfjCbHnnlCPmMvKCaEbPmOxVJFOQMEX/uSZK02wCFsQ4kN8tMcvtJe7olFpPuPOS4zHB9vhf4QezWbzFKUuSE8dVX61exofrZbhL1CyQZorMSryt71ED/tTzLvsraJTaNGVHf9J6T8YmQ21syQAAA==</ScriptData>
+					<ScriptVersion>1</ScriptVersion>
+					<ScriptGuid>62d4a8a8-9d0a-11e9-a5f9-000c29afe504</ScriptGuid>
+					<ScriptFlags>1</ScriptFlags>
+					<Parameters></Parameters>
+				</Table>
+			</NewDataSet>
+			<ExtraDataField>
+				<NewDataSet>
+					<Table>
+						<ID>727</ID>
+						<Form>1</Form>
+						<Name>Next Maintenance Mode Start</Name>
+						<Sort>0</Sort>
+						<NoBreak>0</NoBreak>
+						<FType>0</FType>
+						<Section>Maintenance Mode</Section>
+						<UnEditable>1</UnEditable>
+						<Collapsed>0</Collapsed>
+						<Fill>Date must be in YYYY-MM-DD formatting.</Fill>
+						<LtGuid>7ec74266-83b3-465a-b735-ff23d3d66aa2</LtGuid>
+						<IsPassword>false</IsPassword>
+						<IsEncrypted>false</IsEncrypted>
+						<IsHidden>false</IsHidden>
+						<IsRestricted>false</IsRestricted>
+						<ViewPermissions></ViewPermissions>
+						<EditPermissions></EditPermissions>
+					</Table>
+				</NewDataSet>
+			</ExtraDataField>
+			<ExtraDataField>
+				<NewDataSet>
+					<Table>
+						<ID>728</ID>
+						<Form>1</Form>
+						<Name>Next Maintenance Mode End</Name>
+						<Sort>1</Sort>
+						<NoBreak>0</NoBreak>
+						<FType>0</FType>
+						<Section>Maintenance Mode</Section>
+						<UnEditable>1</UnEditable>
+						<Collapsed>0</Collapsed>
+						<Fill>Date must be in YYYY-MM-DD formatting.</Fill>
+						<LtGuid>8df7ff5d-319e-42b2-9133-86807fab9420</LtGuid>
+						<IsPassword>false</IsPassword>
+						<IsEncrypted>false</IsEncrypted>
+						<IsHidden>false</IsHidden>
+						<IsRestricted>false</IsRestricted>
+						<ViewPermissions></ViewPermissions>
+						<EditPermissions></EditPermissions>
+					</Table>
+				</NewDataSet>
+			</ExtraDataField>
+			<ExtraDataField>
+				<NewDataSet>
+					<Table>
+						<ID>729</ID>
+						<Form>1</Form>
+						<Name>Recur Yearly</Name>
+						<Sort>6</Sort>
+						<NoBreak>0</NoBreak>
+						<FType>1</FType>
+						<Section>Maintenance Mode</Section>
+						<UnEditable>0</UnEditable>
+						<Collapsed>0</Collapsed>
+						<Fill></Fill>
+						<LtGuid>58bb8164-e52d-43fc-a565-44e867a93fbb</LtGuid>
+						<IsPassword>false</IsPassword>
+						<IsEncrypted>false</IsEncrypted>
+						<IsHidden>false</IsHidden>
+						<IsRestricted>false</IsRestricted>
+						<ViewPermissions></ViewPermissions>
+						<EditPermissions></EditPermissions>
+					</Table>
+				</NewDataSet>
+			</ExtraDataField>
+			<ScriptFolder>
+				<NewDataSet>
+					<Table>
+						<FolderID>257</FolderID>
+						<ParentID>8</ParentID>
+						<Name>Maintenance Mode</Name>
+						<GUID>0b4e1dbb-7978-476f-9f9a-6857ca77b53c</GUID>
+					</Table>
+				</NewDataSet>
+			</ScriptFolder>
+			<ScriptFolder>
+				<NewDataSet>
+					<Table>
+						<FolderID>8</FolderID>
+						<ParentID>0</ParentID>
+						<Name>Maintenance</Name>
+						<GUID>064548fa-1133-4823-a069-4197f8256f3e</GUID>
+					</Table>
+				</NewDataSet>
+			</ScriptFolder>
+		</PackedScript>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>257</FolderID>
+					<ParentID>8</ParentID>
+					<Name>Maintenance Mode</Name>
+					<GUID>0b4e1dbb-7978-476f-9f9a-6857ca77b53c</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>8</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Maintenance</Name>
+					<GUID>064548fa-1133-4823-a069-4197f8256f3e</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
