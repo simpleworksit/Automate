@@ -1,0 +1,99 @@
+﻿<LabTech_Expansion
+	Version="190.203"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6286</ScriptId>
+				<FolderId>155</FolderId>
+				<ScriptName>Generate AD PIN (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-07-16
+Description:
+This script creates a temporary PIN used for the Active Directory scripts. Users must create the PIN before running scripts to authenticate. It will send the contact an email with the PIN. After three minutes the script PIN is cleared and is no longer valid.
+
+IT Glue Article:
+https://sw.itglue.com/337469/docs/3638727#version=published&amp;documentMode=view</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyKZNW1OWXPy7KIiK99iukEta0gbs20uLQj0NM8M3MHhyNfmednawBu9jR0aimBWv0W/b6AcKBlAsHO7fnQsTQ+YeqW/smLADPUO0YWSQJywFqVlRKV3JjF3OKBYE3urguuFBoXetn6b/g29/jK4xQJmSm7zmqS5LLiVprkEVHADqVNsX5aB+/AygWB5arz7GoCVp4AAAAA==</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAN2XUW+bMBDH3yvlO3gPvM2LsQmBKUKNmraLNHWVMu3dwLGgAs6wWddvP0OclKCA1FZaxZ7w/+58+H62T7DYRGW6UyuueDC5QGix17IRWl7/USWvvTcpZLFE04Pjnpc8BwVly3abiZBnLcM+2Q8dlIoisBfTU8NJ1G2VxgEB5tjeLMLUn8+xbYOPfeK4mBASUZ8nMCPOIUszoVnztL1ok26jYHesYhkpswAzMvabqmj0Oq59LdUu0u4UTTuadbTT0bMWD1GqgOj11k9juxKFSosKavtxbHzf5Nc0T5sph6HxrIsYCsWbYrS3LdtInikMYKFDWAjrBxOAT32ISIJ9iEPsxImLvQQY9kKSJMx2aQjeYmqCTxgGViTyXaXPT6Rr5jp9bJlIeko3WGaZeMTLFTa7bMLY/wt9TgaY9+Do8mU9NO3z+Op6zGgIoz0mjJQNXOqg72B6PeBIDzjvPLhj/OwEIB0TQG/oHCah6zLKY+wwmmDH4T7mIU8wZ7HvhhHzIwJvvvtWyYtYB3MpH0V5DHvZ3WdjYj7ccP8J9Pv13as4O2PiTJ0BzNbVntF1ztPM6gG6fy96ptXl+AV0q0aHXHf6c8n6OLmYXHzfAlqukDzOR0+iQiX8qkAqiFEqUQi6yX+ugy+1/7IerFXtEEX2hH7zLI1RIkqktiUAyjVaBfLTPjkvHmTjjLZCyLT4iTZpvstAX6AH+eFVOzsb1c4OdX3bI+e3840fde6YCL17X38h3Pk7wD1o82f0F3IU4iUoDQAA</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>0e34185c-2977-11e9-9046-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>669</ID>
+					<Form>13</Form>
+					<Name>Allow AD Scripts</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>AD Scripts</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Gives agent template access to Active Directory scripts </Fill>
+					<LtGuid>e929ec0f-9edb-4df6-8fe3-8b0ff3162be8</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>668</ID>
+					<Form>13</Form>
+					<Name>PIN</Name>
+					<Sort>1</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>AD Scripts</Section>
+					<UnEditable>1</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Temporary PIN to authorize AD scripts. Requires that contact has email address provided.</Fill>
+					<LtGuid>fb6632ad-432f-44a9-abaf-a3d96bc39c0e</LtGuid>
+					<IsPassword>true</IsPassword>
+					<IsEncrypted>true</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>155</FolderID>
+					<ParentID>8</ParentID>
+					<Name>Active Directory</Name>
+					<GUID>a4a804a8-c72d-4ed1-affe-618687cab9a0</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>8</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Maintenance</Name>
+					<GUID>064548fa-1133-4823-a069-4197f8256f3e</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
