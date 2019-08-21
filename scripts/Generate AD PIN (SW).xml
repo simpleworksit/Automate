@@ -1,5 +1,5 @@
 ﻿<LabTech_Expansion
-	Version="190.203"
+	Version="190.224"
 	Name="LabTech Script Expansion"
 	Type="PackedScript">
 	<PackedScript>
@@ -13,6 +13,10 @@ Date: 2019-07-16
 Description:
 This script creates a temporary PIN used for the Active Directory scripts. Users must create the PIN before running scripts to authenticate. It will send the contact an email with the PIN. After three minutes the script PIN is cleared and is no longer valid.
 
+Updated By: Shea Bryarly
+Date: 2019-08-20
+Description: Made the script/PIN work for 5 minutes per company suggestion.
+
 IT Glue Article:
 https://sw.itglue.com/337469/docs/3638727#version=published&amp;documentMode=view</ScriptNotes>
 				<Permission>0,</Permission>
@@ -22,7 +26,7 @@ https://sw.itglue.com/337469/docs/3638727#version=published&amp;documentMode=vie
 				<MaintenanceScript>0</MaintenanceScript>
 				<FunctionScript>0</FunctionScript>
 				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyKZNW1OWXPy7KIiK99iukEta0gbs20uLQj0NM8M3MHhyNfmednawBu9jR0aimBWv0W/b6AcKBlAsHO7fnQsTQ+YeqW/smLADPUO0YWSQJywFqVlRKV3JjF3OKBYE3urguuFBoXetn6b/g29/jK4xQJmSm7zmqS5LLiVprkEVHADqVNsX5aB+/AygWB5arz7GoCVp4AAAAA==</LicenseData>
-				<ScriptData>H4sIAAAAAAAEAN2XUW+bMBDH3yvlO3gPvM2LsQmBKUKNmraLNHWVMu3dwLGgAs6wWddvP0OclKCA1FZaxZ7w/+58+H62T7DYRGW6UyuueDC5QGix17IRWl7/USWvvTcpZLFE04Pjnpc8BwVly3abiZBnLcM+2Q8dlIoisBfTU8NJ1G2VxgEB5tjeLMLUn8+xbYOPfeK4mBASUZ8nMCPOIUszoVnztL1ok26jYHesYhkpswAzMvabqmj0Oq59LdUu0u4UTTuadbTT0bMWD1GqgOj11k9juxKFSosKavtxbHzf5Nc0T5sph6HxrIsYCsWbYrS3LdtInikMYKFDWAjrBxOAT32ISIJ9iEPsxImLvQQY9kKSJMx2aQjeYmqCTxgGViTyXaXPT6Rr5jp9bJlIeko3WGaZeMTLFTa7bMLY/wt9TgaY9+Do8mU9NO3z+Op6zGgIoz0mjJQNXOqg72B6PeBIDzjvPLhj/OwEIB0TQG/oHCah6zLKY+wwmmDH4T7mIU8wZ7HvhhHzIwJvvvtWyYtYB3MpH0V5DHvZ3WdjYj7ccP8J9Pv13as4O2PiTJ0BzNbVntF1ztPM6gG6fy96ptXl+AV0q0aHXHf6c8n6OLmYXHzfAlqukDzOR0+iQiX8qkAqiFEqUQi6yX+ugy+1/7IerFXtEEX2hH7zLI1RIkqktiUAyjVaBfLTPjkvHmTjjLZCyLT4iTZpvstAX6AH+eFVOzsb1c4OdX3bI+e3840fde6YCL17X38h3Pk7wD1o82f0F3IU4iUoDQAA</ScriptData>
+				<ScriptData>H4sIAAAAAAAEAN2XUW+bMBDH3yvlO3gPvM2LsQmBKUKNmraLVHWVMu3dYLNaBZxh067ffoY4KUEBqa20ij3h/9358P1sn2CxSUqx1SuqaTQ5A2Cx06oRRl7+0SWtvVeCZ0yB6d5xR0uac83Llu06kzHNWoZdsp8mSMgichfTY8NR1HUlWIQ48dxglkAczufQdXkIQ+T5ECGU4JCmfIa8fZZmQrPmaXvRNt1G8+2himWi7QLsyNqvqqLRa1b7WqpdpNspGnc06Wivo2ctHrLUETLrrZ/WdiELLYqK1/bD2Pq+qxuRi2bKfmg964LxQtOmGONtyzaSFwoDWPAQFkT6wUQ8xCFPUApDzmLosdSHQcoJDGKUpsT1ccyDxdQGHzGMnETm28qcn8TUTE165thIfEw3WmaZfILLFbS7bMPI/wt9jgaY9+Do8iU9NN3T+Op67GgIozsmjJgMXOqo72AGPeBQD7jgNLhD/OwIIB4TwGDoHKax7xNMGfQITqHn0RDSmKaQEhb6cULCBPF3332npAUzwVSpJ1kewl5398mYmA833H8C/W59+ybO3pg4Y28As3OxY3SZU5E5PUB37wUvtLocv3HTqsE+1635XHI+T84mZz/uOViugDrMB8+yAiX/XXGlOQNCgZibJv+1Dj43/vN6sNa1QxbZM3ikmWAglSVIxSMHuSGrufqyy02LB9X4knsplSh+gY3Itxk39+dBfXrTxs5GtbFDTZ8gdHo33/lN54+J0Ie39VfCnX8A3L22P0Z/AYnah64nDQAA</ScriptData>
 				<ScriptVersion>1</ScriptVersion>
 				<ScriptGuid>0e34185c-2977-11e9-9046-000c29afe504</ScriptGuid>
 				<ScriptFlags>0</ScriptFlags>
