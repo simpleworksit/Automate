@@ -1,0 +1,72 @@
+﻿<LabTech_Expansion
+	Version="190.224"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6368</ScriptId>
+				<FolderId>265</FolderId>
+				<ScriptName>Import Simpleworks Power Plan (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-09-06
+Description: This script downloads and imports the Simpleworks Power Plan from the Automate server.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPywrCMBRE94L/kA9oyIO2GLkERMWNgqjoOqa3kk1a8gD799KiUFfDzHAGBo7Ooo+4M8louA09agFsUrhkv+2yTxg0BzZzsH/3LowM6gc2HmNjhoJs8ivHROSqIJILReo1r9cVJ+cTsBkBVxtcn+4Youv8OP0ffPtDdo0uTS0NSkWterZUCFTUKCko59xKZVqsePnjJwDY/NBy8QEZbYcH4AAAAA==</LicenseData>
+				<ScriptData>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</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>4a62ae29-c9bf-11e9-a921-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>742</ID>
+					<Form>1</Form>
+					<Name>Simpleworks Power Plan Deployed</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>SW GPO</Section>
+					<UnEditable>1</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Shows that the "Import Simpleworks Power Plan" script completed on this PC.</Fill>
+					<LtGuid>21314151-b026-43b3-9825-0ae47aceab6c</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>265</FolderID>
+					<ParentID>264</ParentID>
+					<Name>Simpleworks Power Plan</Name>
+					<GUID>bd3f1bdf-8591-4002-abe5-f32620a20527</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>264</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks GPO</Name>
+					<GUID>b5f398d7-767f-4955-a782-4ef712eff55e</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>

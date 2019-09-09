@@ -1,0 +1,49 @@
+﻿<LabTech_Expansion
+	Version="190.224"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6371</ScriptId>
+				<FolderId>265</FolderId>
+				<ScriptName>Set Simpleworks Power Plan GPO (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-09-06
+Description: This script creates the "Simpleworks Global Power Plan" GPO and links it to the domain root.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPQQrCMBRE94J3yAFa8hNbaconGxU3CmJF1zH9hSxMS5qCvb20KNTVMDO8gcGTs+R72ptoNN7GjrRAPiteB79rBx8paEC+cHh4dy5MDOkH1Z762owJq6iL9HpSYJAlTIJQTEAJUG4ku5yRLyisbHBdvFPoXeun+f/g2x8HV+uCCmlVkae22UIqBKnUKClSALBSmYZyyH78DCBfnlqvPuR5gwLkAAAA</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAN1XbW/iRhD+jsR/2HKna/vBYDu8hBxFoUAIOi5BMb1TpUjRYo9hFdtr7a6PoOr+e/fFdgztUfqhqlopSjyzs7PPPM+M1xl4PiOpmGCBh/UaQgNjc21Ic/oiGFarNwSigKNWsbDEDMcggFV8s4iucVRxmGSfZBChydAZtA4dB1GzjATDS7h0/f5lx/LDrm05DvQt3Hcdy7Zt3+3jEDp2u8iiN2jMrSroPJ0nIC2rGPkiB5A/5f6bLNH2PBg6F/agVbGrZTpDp+9cDlq5UV1yh9djGqeZJGI+uc5D3IOQiyPS2kd2p8IXZWIocei/uW9ME0GSDJS/fM7X7vmCxERvKR7zlXkSQCKwLlauVs0qZa8snaDNPUlb/wRtqy2gkEYR3ZFkg1K6k8JvIYqQT+MYJwFaZ0R1lZBxs+U9Ui6B2QaE8QU0xiRBjFLR/HP6j7j8X3PtXnROcG1/oz/fReL9m3ptlIktZVfI2wJGP7M9ZtG+XpOTDVfItZ2+ZcufrvQA1+DkEVf12mpLODIO5DOQ0UYYj8RpBDvKnjkyU4+WSl20jHBSSok5J5uEIyKQoHqfUhLR0IgLIc4ikYvcrNfevNuI9/VavfaW7zYpRT8hWz7nPWAM00IghOon49qkEUmeS4Mm8rUkrcZJiA0Zy2DzDHsVevth+uvT4n48Wjx9HI1v53fTR+/+ZvV59DB9XNKI+AT440fiM8ppKB51GvPbM1B4nu8LjjJ9uNLwC5gQfwsxqACxTw0yweSeRlmODii3Bk477Hawb/V6647VBrdvrXu9jnXRBaffkW/Adq/bUCyt2B79ZrR+JWkGwhpNJsa0poxRZvoJeYKmJvozIwKsW8qFBDophiykWRI0ZeavaIyFvy1yV6PHNIsClEgNQyL1LTdfocbbJxM+fSFC5igAlggLSRVA1R/WndKpFOwMqDcK4F93XhONhIA41S0i2y5LA9m2euV0caczBxR48r1A8EK4OD7DjIbsc32Eqp2E6IfvTNE/FodVBDug5A52f4OSY9hq5xZztAZIciBaRhV3VO3x1uLgEJMIgoqIr0LqLBU9CzmPBtHTqj7ARpLD9p90L+fl6CqbE8LTCO+1y/ogx64YP0sHm9BygqyVGhUzMCYA/XFWzmiZAhDKkfK8G87vc3+Lk418bxWJ9NHfbveCnvKlZCheKMNSHywFH/NAFqlvumJ4FUUKY0bkFRncnTkUB+qrMyEo3rXVy/Psck0jz5ZIQc7r/HreZ015A7UPr9zh0rMept4vi1W+3jm4gp3/1BV86mvnuiz0+h/5WHH/BaYKO/8H4XexO4yoLwwAAA==</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>8e82c985-cf60-11e9-a921-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>265</FolderID>
+					<ParentID>264</ParentID>
+					<Name>Simpleworks Power Plan</Name>
+					<GUID>bd3f1bdf-8591-4002-abe5-f32620a20527</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>264</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks GPO</Name>
+					<GUID>b5f398d7-767f-4955-a782-4ef712eff55e</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
