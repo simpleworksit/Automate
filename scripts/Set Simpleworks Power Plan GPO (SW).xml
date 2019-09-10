@@ -12,6 +12,8 @@
 Date: 2019-09-06
 Description: This script creates the "Simpleworks Global Power Plan" GPO and links it to the domain root.
 
+This script runs every Sunday at 5:00 a.m.
+
 IT Glue Article:
 https://sw.itglue.com/337469/docs/3939694#documentMode=edit&amp;version=published</ScriptNotes>
 				<Permission>0,</Permission>
