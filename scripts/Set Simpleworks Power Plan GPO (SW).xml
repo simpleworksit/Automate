@@ -10,7 +10,10 @@
 				<ScriptName>Set Simpleworks Power Plan GPO (SW)</ScriptName>
 				<ScriptNotes>Author: Shea Bryarly
 Date: 2019-09-06
-Description: This script creates the "Simpleworks Global Power Plan" GPO and links it to the domain root.</ScriptNotes>
+Description: This script creates the "Simpleworks Global Power Plan" GPO and links it to the domain root.
+
+IT Glue Article:
+https://sw.itglue.com/337469/docs/3939694#documentMode=edit&amp;version=published</ScriptNotes>
 				<Permission>0,</Permission>
 				<EditPermission>0,</EditPermission>
 				<ComputerScript>1</ComputerScript>

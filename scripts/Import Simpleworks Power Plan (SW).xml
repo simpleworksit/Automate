@@ -10,7 +10,10 @@
 				<ScriptName>Import Simpleworks Power Plan (SW)</ScriptName>
 				<ScriptNotes>Author: Shea Bryarly
 Date: 2019-09-06
-Description: This script downloads and imports the Simpleworks Power Plan from the Automate server.</ScriptNotes>
+Description: This script downloads and imports the Simpleworks Power Plan from the Automate server.
+
+IT Glue Article:
+https://sw.itglue.com/337469/docs/3939730#documentMode=edit&amp;version=published</ScriptNotes>
 				<Permission>0,</Permission>
 				<EditPermission>0,</EditPermission>
 				<ComputerScript>1</ComputerScript>
