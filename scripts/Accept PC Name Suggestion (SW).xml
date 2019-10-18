@@ -1,0 +1,125 @@
+﻿<LabTech_Expansion
+	Version="190.275"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6311</ScriptId>
+				<FolderId>250</FolderId>
+				<ScriptName>Accept PC Name Suggestion (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-04-23
+Description: Looks at the suggested name edf found under name management and renames the computer. The script will not restart the machine. 
+System must:
+1. Have powershell.
+2. Be on a domain that SW has admin rights to.
+3. Be a windows system
+4. Be a workstation in the managed 24x7 group.
+
+Script then saves the old name of the computer in the Old Name field for safe keeping. It won't change it to the new name until it verifies that the new name is unique across all systems we support.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyE+b2JYlICpeLIiK99iuEJA0pC3Yt5cWhXoaZme+hYGTq9F3uLe9NXAbAxoBbFa4DH7XDr7HaDiwhYPDO7g4MWiq1jd2TMg2RPciUiZEclEQIcpUl4qTcwVsUYdrHV3o7xg71/rp7//hmx8H15iHtrlSjaZaqQ0VAguap5mknPNaFvaJimc/fgaALdesVx9kkziT3QAAAA==</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAN2XX2+iQBDAn8/E70CaGtukW/cPCKQe0VjsmVg1xV4fmwW2hjsEC8u19+1vQVRsCr2zd7nYJ3dmZ4eZH7Mz2LGcyFvyS8qpUa9JUmclx5kgRPOZRzTdHXjMd2Optd6Y0oguGGdRQXflhzb1C4qVs6/CyAsDA3Vau4odq6vEcw27TTVFcdugrSgqQIjpQCMyBhBCB+v0gSlQXnvJDmQxt4pB5+4szpabLHoOzwPIV7l+kASZPHQNRGCnVZCLaSIDd1r5qqjHRtcJF8tEUPDcbm6Cd0zIC2LyC1kpwAojboggst9c1w8D7gUJS/Wbdb43iUfewsuOrJf5zjBwWcBplqnYLYpFXltEFcxwBTNchQyVIONRwl5HZayiMIO5FzAzoLbPRuF8zqLcnHxckgiSCpRUZjZFGhN3gThAljUKKCQEOLosE7ntQqy8WaDDy5ICNaw7cBkuqBfcT+/2Io0+DmmmERUhxwVExRjIqqsCKnQA6owg7cGGrk3fQTqZ349F19yLMj4kympVZ+gWK65bghP/lXZKPhC0vHj+LTD5kIAhFVcQs8yR2Z/Va5+Gg/HtaHTSn9yOZyfbgX16Bk/rtcHN5FrYrNVxvVav3X0xb0yhHPeuTemz1Nyyb74O/wXUP4WuHBL0yiptxI9+xOLE542SMiUlvRHu1RTbh0ROqyKnIKjqjgbFeEc6kN22DHQCVaAQl2pYtpGmlH1Rvf0RajTWJoGo4sZeqNVDQo2JUsEaloA8XtI4fgojV1x6kdMPFvFZCCzmJBGzeOQF87QXFIdXUwK9eOoLacaeuQQGYeSwi7SHHDsRS5PzqC+8jdkTmNjfmMMl62fM2eL8mgZ0zhbC4ryXcOEwjfR8avW3x06asbdY+kxE9D1unkmb8E6zJ9yw9GWCfv5mJSAekjYp6Wjbr46kPNiC20JkF783MzbA5N0KMZYxWN32fF/ZqRjtoCpGrxq+m0RLpu87B4D+H0it5fyv/y+lmT9ECRAAAA==</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>b6a855d6-6557-11e9-8342-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>707</ID>
+					<Form>3</Form>
+					<Name>SW Domain Admin</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section></Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill></Fill>
+					<LtGuid>a4eba18e-833c-448a-a033-c944346d0252</LtGuid>
+					<IsPassword>true</IsPassword>
+					<IsEncrypted>true</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>true</IsRestricted>
+					<ViewPermissions>5</ViewPermissions>
+					<EditPermissions>5</EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>705</ID>
+					<Form>1</Form>
+					<Name>Suggested Name</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Name Management</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>This name represents what the computer should be called according to our current naming standards.</Fill>
+					<LtGuid>e83711cd-3722-47d7-ae83-09e318fb0dba</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>706</ID>
+					<Form>1</Form>
+					<Name>Old Name</Name>
+					<Sort>1</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Name Management</Section>
+					<UnEditable>1</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill></Fill>
+					<LtGuid>51079c80-4419-4d64-9307-53da824b1851</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>250</FolderID>
+					<ParentID>194</ParentID>
+					<Name>PC Naming</Name>
+					<GUID>ee684d76-616e-4c1c-9c88-20b8fa79a106</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>194</FolderID>
+					<ParentID>0</ParentID>
+					<Name>OS Management</Name>
+					<GUID>b5cbc53c-4c85-400c-8a06-e4346d7e7645</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>

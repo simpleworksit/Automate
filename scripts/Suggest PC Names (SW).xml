@@ -1,0 +1,83 @@
+﻿<LabTech_Expansion
+	Version="190.275"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6310</ScriptId>
+				<FolderId>250</FolderId>
+				<ScriptName>Suggest PC Names (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-04-23
+Description:
+This script determines what chassis is of a workstation and creates a name for it based on the naming convention specified in the location defaults and how many computers are currently using that naming convention across the client.
+
+In order to run the script you must provide a client id and a location id. The email address is optional. If you do provide an email address you will recieve a csv file that shows all the recommendations. 
+
+This script is meant to run only on the labtech server and doesn't actually change any computer names. It only updates the "Suggested Name" edf under name management. To actually change the name use the "Accept PC Name Suggestion" script.
+
+It will not offer a name for Servers, Mac, or Linux machines.
+
+Updated By: Shea Bryarly
+Date: 2019-10-18
+Description: Added Client Name and Location Name EDFs and included them into the script. Naming convention is now (chassis-client-location-number). Also, it now goes off of the last suggested name instead of the current computer name for more consistent results. It also now supports Surface Pros, Surface Books, and Surface Laptops.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oyCZtrSlLQFS8WBAV76FdISBpSFuwfy8tCvU0zM68hcGzq8l3dLC9NXgfAxmJYla8Dn7fDr6naADFwuHxHVycGDJV6xs7JmwXonsxpRKmQGomoQRZyoJdKhSLOt7q6EL/oNi51k9//w/f/DS4xlCqIS2Kmm/yzHIpSfNtmikOALXS9kk5ZD9+BlAs16xXH8k9VuPdAAAA</LicenseData>
+				<ScriptData>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</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>e390377c-654a-11e9-8342-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters>input_client_id,input_location_id,email_address</Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>705</ID>
+					<Form>1</Form>
+					<Name>Suggested Name</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Name Management</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>This name represents what the computer should be called according to our current naming standards.</Fill>
+					<LtGuid>e83711cd-3722-47d7-ae83-09e318fb0dba</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>250</FolderID>
+					<ParentID>194</ParentID>
+					<Name>PC Naming</Name>
+					<GUID>ee684d76-616e-4c1c-9c88-20b8fa79a106</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>194</FolderID>
+					<ParentID>0</ParentID>
+					<Name>OS Management</Name>
+					<GUID>b5cbc53c-4c85-400c-8a06-e4346d7e7645</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
