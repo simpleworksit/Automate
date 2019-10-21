@@ -16,6 +16,8 @@ System must:
 2. Be on a domain that SW has admin rights to.
 3. Be a windows system
 4. Be a workstation in the managed 24x7 group.
+5. Have the Name Change Pending EDF checked.
+6. Can't have the same name as the suggested name.
 
 Script then saves the old name of the computer in the Old Name field for safe keeping. It won't change it to the new name until it verifies that the new name is unique across all systems we support.
 
@@ -28,13 +30,36 @@ https://sw.itglue.com/337469/docs/4147930#version=published&amp;documentMode=vie
 				<MaintenanceScript>0</MaintenanceScript>
 				<FunctionScript>0</FunctionScript>
 				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyE+b2JYlICpeLIiK99iuEJA0pC3Yt5cWhXoaZme+hYGTq9F3uLe9NXAbAxoBbFa4DH7XDr7HaDiwhYPDO7g4MWiq1jd2TMg2RPciUiZEclEQIcpUl4qTcwVsUYdrHV3o7xg71/rp7//hmx8H15iHtrlSjaZaqQ0VAguap5mknPNaFvaJimc/fgaALdesVx9kkziT3QAAAA==</LicenseData>
-				<ScriptData>H4sIAAAAAAAEAOWXX2/aMBDAn4fEd4iqIVqpLv4XkqgsAlHokCighq6PlZO4VbaQsMRZu28/JzUQqpFtdNPE9oTvfLnc/Xy+Cx3HS4KluGCC2fWapnWe5bQQpDh4EgnLd4cBD/1Ua602ZixhCy54UtJdhrHLwpLi2dkHaRTEkY06rW3FltVlFvi222amrvtt0NZ1AyDELWASigGE0MMWu+c6pCsvxQNFzK1y0MqdI/hynUXPEyoAtVL6YRYV8si3EYGdVkkup4ls3GmpVVmP7a4XL5aZpBD4XWWCt0zIC2L0hayXYMWJsGUQxa/S9eNIBFHGc/16rfam6ThYBMUjq6XaGUU+jwQrMpW7ZbHMa4OoghmuYgZJBTNGucuQyeUJEg9QajLAICHAsygltO1DrP8Q6+hiB1bbuQUX8YIF0d3sVpmQ/5U0N4mBkOcDYmAMqOEbgEkdgBYnyLx3oe+yV5DOHu4m8q7vRRkdEmWjqgV0yxXX3YET/5YmgP8haKp4/iwwckjAkIEriDmD8aA/r9fejIaTm/H4uD+9mcyPN2Pm5BSe1GvD6+mVtFmp03qtXrt9P7geSOWkdzXQ3mnNDfvm9+G/gPqr0OkhQa+s0kb6OUx4moWisaNMyY7eCPdqivohkTOryOkIGpZnQjnekQWo36bAItAAOvGZiamLTB3t/elkN1Ymkazixl6o24eEGhO9gjXcAfLtkqXpY5z48tLLnL7wRMxj4HAvS7gjkiB6yHtBeXg1NdBLZ6GU5vxJaGAYJx4/z3vIWy/heXIBC6W3CX8EU/cj94TmfE0FX5xdsYg98IW0OOtlQjrMIz2bOf3NY8fNNFgsQy4j+pQ2T7V1eCfFG655fpigr05WA/IleZPSjjb96khTwZbcliI7/7mZsQZGtyvEXqbg+barfX2rYoyDqhiraviuE90xfV85AMy/QGolqz+s3wB9oSnkvw4AAA==</ScriptData>
+				<ScriptData>H4sIAAAAAAAEAOWYbW+bMBCAPy9S/gOqVqWV5sZvBFAzlCpNukppGjXZ+rEycM3YCGS8rN2/n6EkIVWhW9ZpovuE72wf54fz2Ud3aofuMj4VsTCbDUXpPshRJkhxcB+HIu0duuA5kdJedUxEKBYQQ1jQnXmBJbyC4sHYJznIDXyTdNvbiq1RZ4nrmFZH6KrqdFBHVTVECBhIZ5wijLFNDXELKuYrK9mEzOd20enc3DSG5XoVJ3acO5C3cv0w8TP53DEJw912QS4uk5i0285bRT01e3awWCaSguv08iF0awh7RIw/ktUCrCCMTelE9sx1/cCPXT+BVL9u532X0chduNmUVTPvOfcd8GORrVT2FsUirw2iCma0ghmtQkZKkM3CBJ5GZfYe3Bj4c9eHgS8sD0bBfA7hii17vSwJZhUwWUc4lm6pSKjEQFzlGOncAGQZjHJ6SwE047kQPT8tCVFzLHcy6n8W/hzQBHzH9ec7ASd1Aq5VBW85kcd4WQlTshNBWieC1SErOFiC6CATOLMR57pAAjOGbINzxjsOpuqzWbU8ZKfX6DRYCNe/mVzvRJq9HtKgM40Q20FMoxRxzdGQkDqEDWBEv7WwY4k/IJ3Mb9LtsBNlXifKlRmhV4y4XglO+iJ3APUVQcuD5+8C6/z3wMz91Ub25eT9nfaqVieKRKMVGKeD0aA/azbenA/HH0ejg/7lx/HsYHNXP3yHD5uN4dXlhRyzUkfNRrNx/WFwNZDK8cnFQHmvtDYfpPX0F3kE9XdDV68T9MrQ3Y++eSFEiRfv/+ZVCe8UrkadyOlV5FSCNcPWsbwkpZd7p8ORwbCGVOYInXKL6GpZMfV8/fkSmYHUqpKiTK2AjUtIvl2KKLoLQkfuermm7xDGswBNwU5CmMahLADSZFC8A7QUdBJNPCnN4D5W0DAIbThOk8hbO4R0ca7wpLUx3KFL6wvYsTL9EcWwOLoQvpjDQo44OkliaTD19Ggy7W+mHbQid7H0QHr0NWq9U9buHWZvuAI/q1DyT6sg+ZI0Syl7m4S1p+TOFswWPDv+taN3DYxvh4i5jNDDds/71e2QqVUtSI2qM3m90pJD+Q+PAFKroq8yk73Eb4ryTLbbOUH+RaW3kvP/qj8BR8kftGYVAAA=</ScriptData>
 				<ScriptVersion>1</ScriptVersion>
 				<ScriptGuid>b6a855d6-6557-11e9-8342-000c29afe504</ScriptGuid>
 				<ScriptFlags>0</ScriptFlags>
 				<Parameters></Parameters>
 			</Table>
 		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>746</ID>
+					<Form>1</Form>
+					<Name>Name Change Pending</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Name Management</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>This flag is set when the Suggested Name does not match the current computer name and is set by the "Suggest PC Names (SW)" script.</Fill>
+					<LtGuid>36adb8b5-a519-4540-849e-b93242f2ee79</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
 		<ExtraDataField>
 			<NewDataSet>
 				<Table>
