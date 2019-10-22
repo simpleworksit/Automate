@@ -10,7 +10,10 @@
 				<ScriptName>Clear Suggested PC Name (SW)*</ScriptName>
 				<ScriptNotes>Author: Shea Bryarly
 Date: 2019-10-22
-Description: Clears the suggested name edf under the Computer Screen &gt; Extra Data Fields &gt; Name Management &gt; Suggested Name. It also clears that Name Change Pending EDF in the same location.</ScriptNotes>
+Description: Clears the suggested name edf under the Computer Screen &gt; Extra Data Fields &gt; Name Management &gt; Suggested Name. It also clears that Name Change Pending EDF in the same location.
+
+IT Glue Article:
+https://sw.itglue.com/337469/docs/4164622#documentMode=edit&amp;version=published</ScriptNotes>
 				<Permission>0,</Permission>
 				<EditPermission>0,</EditPermission>
 				<ComputerScript>1</ComputerScript>
