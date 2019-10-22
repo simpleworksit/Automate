@@ -1,0 +1,95 @@
+﻿<LabTech_Expansion
+	Version="190.275"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6373</ScriptId>
+				<FolderId>250</FolderId>
+				<ScriptName>Clear Suggested PC Name (SW)*</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2019-10-22
+Description: Clears the suggested name edf under the Computer Screen &gt; Extra Data Fields &gt; Name Management &gt; Suggested Name. It also clears that Name Change Pending EDF in the same location.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPTQrCMBSE94J3yAEa8mMsTXlko+JGUVTcx+QVsmlLmoC9vbQo1NUwM3wDA6fgsB1wb5M18Bh7NALYrHDL7a7LbcJoOLCFg8O7D3Fi0DwyDt6OBbm41L0wEikLIrnQpKxlVYsNuZ6BLQC4uxj69MQ4hK6dlv+Db3/MwRvnlVcoS9qoRlMhUNOqQkE5505q2+CWqx8/A8CWf9arD7k7GcjfAAAA</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAO2U3WqEMBCF7wt9B18gmMS4JiCype0uC4UWFnofzQgB/9AIffxqNm6j0L1sb/bKnHMmw8xHMD0Xve7MizQye3wIgvSiBysm+fplejmnBw2VGoJwCT5kL2sw0HvesWpzWXnGpdnnVKTbJiNpuDZWVcdRq6xQTDGgO1SyUiBCQCDOgSCMcUGFLCHGbOliL9iZQ39o1+5soLtu8VQYN4A7Of8wNlaf1Jx5yl+SbJamGx1tNNvo2OPR9ibD07zz13nPbWN0M8LsX88uex/edK3tleXoklOjoDHSLjOlvvSR/FC4gYXewMLx71wy4FFCSKFQlFCKWKISJCcPYQER4WWOVS7T0BWvEGb7oq27cXo+Wu1dCb1TtaCinVQ5z2MkYyIQixlGnAlAuYgooyUFSMRfUSX/QHXR7p/0DeEWIkOiBAAA</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>cd4d4e26-f4f9-11e9-88e1-000c29afe504</ScriptGuid>
+				<ScriptFlags>1</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>705</ID>
+					<Form>1</Form>
+					<Name>Suggested Name</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Name Management</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>This name represents what the computer should be called according to our current naming standards.</Fill>
+					<LtGuid>e83711cd-3722-47d7-ae83-09e318fb0dba</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>746</ID>
+					<Form>1</Form>
+					<Name>Name Change Pending</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Name Management</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>This flag is set when the Suggested Name does not match the current computer name and is set by the "Suggest PC Names (SW)" script.</Fill>
+					<LtGuid>36adb8b5-a519-4540-849e-b93242f2ee79</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>250</FolderID>
+					<ParentID>194</ParentID>
+					<Name>PC Naming</Name>
+					<GUID>ee684d76-616e-4c1c-9c88-20b8fa79a106</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>194</FolderID>
+					<ParentID>0</ParentID>
+					<Name>OS Management</Name>
+					<GUID>b5cbc53c-4c85-400c-8a06-e4346d7e7645</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
