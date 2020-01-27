@@ -1,0 +1,177 @@
+﻿<LabTech_Expansion
+	Version="190.333"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6383</ScriptId>
+				<FolderId>203</FolderId>
+				<ScriptName>Simpleworks Active Directory Cleanup (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-15-1
+Description: This script reports or removes inactive computers and empty organizational units in a domain.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoaDb9oZYlFxVBLIiK95iskEta0gbs22uLQj0tOzPfDosnZ8j3tNODVngbO1KA6TzxEv22jX6goASmiw33r86FiSHVtN7qMWFH7aMOI4MsYVJIwcpaiBqAnRtMF3m8muC64U6hd62fDv8LX/8QnVWScihNZXhWyicHIM0feW65EFAUdlN9arIfPwOYLt9Zr95ty5rr3gAAAA==</LicenseData>
+				<ScriptData>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</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>2e416c8c-362f-11ea-b44d-00155d980203</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>750</ID>
+					<Form>3</Form>
+					<Name>Remove Inactive Computers</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Active Directory Cleanup (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Approves inactive computers to be removed.</Fill>
+					<LtGuid>8bb98e3b-0748-4086-a5d3-d2eca55071f3</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>752</ID>
+					<Form>3</Form>
+					<Name>PC Inactive Days</Name>
+					<Sort>1</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Active Directory Cleanup (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>The number of days a system can be inactive for before getting slated for removal.</Fill>
+					<LtGuid>b18d3db0-a44f-473b-89ac-c70db9054846</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>753</ID>
+					<Form>3</Form>
+					<Name>Disable Inactive Users</Name>
+					<Sort>2</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Active Directory Cleanup (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Disables Inactive Users and moves them to the Disabled User OU.</Fill>
+					<LtGuid>435c4abf-9398-48c6-86f4-5361f97eabef</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>754</ID>
+					<Form>3</Form>
+					<Name>User Inactive Days</Name>
+					<Sort>3</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Active Directory Cleanup (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>The number of days a user can be inactive for before getting slated for removal.</Fill>
+					<LtGuid>34290dfa-52b9-454e-945b-5b44fe209363</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>755</ID>
+					<Form>3</Form>
+					<Name>Remove Un-populated OUs</Name>
+					<Sort>4</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Active Directory Cleanup (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Approves the removal of empty organization units.</Fill>
+					<LtGuid>3e44fb63-ec2b-4894-a764-dab55f32cddd</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>756</ID>
+					<Form>3</Form>
+					<Name>Report Mode</Name>
+					<Sort>5</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Active Directory Cleanup (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Turns on Report Mode which causes a report to be generated and sent to the user. No objects will be altered.</Fill>
+					<LtGuid>c9f8561a-facc-4a87-a709-ac98c5484177</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>203</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Testing</Name>
+					<GUID>ae973593-aaee-4aec-9b63-53a0399a44b3</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>

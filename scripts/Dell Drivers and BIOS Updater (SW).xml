@@ -1,0 +1,100 @@
+﻿<LabTech_Expansion
+	Version="190.333"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6269</ScriptId>
+				<FolderId>97</FolderId>
+				<ScriptName>Dell Drivers and BIOS Updater (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2/20/2019
+Script Description:
+In order for this script to run the Dell Command | Update EDF needs to be checked.This script deploys Dell Command | Update 2.4 if the system does not have it already. Then it attempts to run an update and puts the results in the log. This script does not reboot the system and only runs on Optiplex, Latitude, XPS, or Precision Dell systems. Also, the system needs to have either Windows 7, Windows 8.1, or Windows 10 installed.
+
+Updated By: Shea Bryarly
+Date: 2020-01-27
+Changed the script to remove 2.4 and install 3.1. Changed the command line parameters as well to work with 3.1.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoSLZGqWXJxb+Liqh4T9MN5GBa0lbs20uLQj0NM8M3MHj0lkJDW9Majfe+Jg0oRsVrFzZVF1qKWqKYONy9ax8HhvQ++tL0CTtXL3oWFNlCJiyVkDGAHNJcZexyQjEh8Gajr9sHxcZXYZj+D779ofOlVmALpVTGnXIrDkAZN24tuZTSpmvjaCnVjx8BFNND89kH0Z5HjeAAAAA=</LicenseData>
+				<ScriptData>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</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>41cb4448-f4f6-11e8-af90-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>654</ID>
+					<Form>1</Form>
+					<Name>Dell Command | Update</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Dell Command | Update</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>If this is checked then the Dell Driver and BIOS Updater script will run on system.</Fill>
+					<LtGuid>77f13266-7ab6-4382-bd78-d0681fa8f298</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>655</ID>
+					<Form>1</Form>
+					<Name>Dell Command | Update Override</Name>
+					<Sort>1</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Dell Command | Update</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>If this is checked the computer will not run the Dell Driver BIOS Updater script even if the computer meets requirements for it to run.</Fill>
+					<LtGuid>21c3d5b5-73e8-4500-a61f-ecd784037d0f</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>97</FolderID>
+					<ParentID>1</ParentID>
+					<Name>Tools and Utilities</Name>
+					<GUID>c6b0b1fc-15d6-41fe-864c-ff517c50c363</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>1</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Software</Name>
+					<GUID>31866f37-8f0a-47b9-b1fd-11bd855f8391</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
