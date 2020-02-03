@@ -1,0 +1,39 @@
+﻿<LabTech_Expansion
+	Version="190.333"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6369</ScriptId>
+				<FolderId>203</FolderId>
+				<ScriptName>Client Database Cleanup (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-03-02
+Description: This script runs a series of SQL Delete Statements to remove client data so that the client can be removed from Automate.</ScriptNotes>
+				<Permission>1,</Permission>
+				<EditPermission>1,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oaJIaMWXJRcWLgtjiPaZbyME2pAnYv9cWhXoaZmfewsDZWewGPJhoNNSjR80hnxVuqdv3qYsYNIN84eD48i5MDOo64dCYMSMV+ojPBwbCiowIxhUpSilLxsn1AvkCgcoG5+Mdw+D6bvr9f/jmp+QaLdlG7FolqcVtQTlHRY0SnDLGrFCmxU/hx88A5MtF69UbLhMhZ+EAAAA=</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAOVXW2/aMBR+XqT8h6NKVZ8oJFw6Ls2KaKCVKEyFbdrTZGKzek1sZDu9/Ps5wUBgXbZobBPbU/ydcz7b57PPsdKZBIIu1CVSyLMtgM4SyxRo6D8pgRJvn5IQSyivHG+RQBFRREgvCClh6hPTuFPO2E3kIOQzFGaoyyXe6xDKmed0ytuGrahBTLFXr9Tc1/NmvRSQRrXkOKRZQk3XKVUqlcBtojnRAatZUkKaSTmbipluoshivbFuoMwGzMjY+zFL8TVOfBmUTd3ZkcLdwdUdXNvB9YweXCivovebfI2tx5miLCaJfT02vrEc0oimlNXQeK4Z1ieB0mS0NwuzkmxUyJHFzZPFqf+8MF5rOB4M/MvSeGSuh/sfKeU2/9gVcg5KmGqOMN9eGWevSrkHpZTTyFGqKwg88xhkbAaPiClQHASJ+AOBIJaKR0QA1k0c5lzAsl3D0UWmb18cvYHpHZUQIAaMK5gRPcGD7sgEn758BN5xwJnkIWFxNCPi+OXa9lof/YlxVQudUXXfZ1T7R8q8dlDC5Jf55nLst8Drh1TgjbMciSb+0O9NbevVqlwphta5KWKKbat/O77R7qVB2pZtfbjyb31tGnVvfDiHk61CP2knIZd61qkPCRcUDe6JkpDS1hNr4mbF9jZDF75CQSGKohGRIV0U4SwE/0KKLaMpOA7UPXkuwsI8iKNEvSIrISkfucA/4tjWxJ9mTNo/ejcctn/LtW8cUmvIa5leb+vZukNSv0iEmUcNn4L/RHU6n0GmS3/nifpFNc/+gporbH7IvgIMS8Vjnw0AAA==</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>50428f95-ce63-11e9-a921-000c29afe504</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters>client_name</Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>203</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Testing</Name>
+					<GUID>ae973593-aaee-4aec-9b63-53a0399a44b3</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
