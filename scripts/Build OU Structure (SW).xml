@@ -1,0 +1,62 @@
+﻿<LabTech_Expansion
+	Version="190.333"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6387</ScriptId>
+				<FolderId>203</FolderId>
+				<ScriptName>Build OU Structure (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-02-10
+Description: This script builds the standard Simpleworks OU structure. The Top Level OU field must be defined first for the script to run.</ScriptNotes>
+				<Permission>1,5,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyE9btWXJRUUQBVHRc0xWyCUNaQP27bVFoZ6G2eGbZeDgDPoWN7rTCq59QCWAjQrn5NdN8h1GxYFNHGxfwcWBQXVH67G1us/IXvukY09klRHJJSfLWizqvCSnI7AJAhcTXehuGFvX+KH7//DNd8lZxYsnSmsNLaQxVAjU9CFzQTkXZWmr1edN/uNHANh00Xz2BhwrrW3hAAAA</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAN2YUW+bMBCA3yftP/gl6hMJNlCSqkLJFtJGQkvUNN1LpAjso7VGAIFp2n8/ICQjLKHZljywJ3x3+HT3+Wwf3M5oxEMxtIVtfP6E0O1GjnMhFc03EdmZdcTBYzHqbA1TO7JXICAq6e68wLG9kmLj7Cl9iQe+gW87+4q9t+4SzgxZdYEwRiWVUCphDLbkEAVLsow1jfW6MpGVrZd8Qh5zpxx04W4mINxlMaCiCKAYFfpR4ufymGW2klROEleSJhVZqchqRdZKPIJIGHIab/YsdF8DX3A/gUy/Gxe2SWzxFc+nbIeFZewz8IWdJ5Nay2IZyS8KNVhIDRYiH+eSMStGe3wMerOI+Sr0YB1EP+JFvFmdxZeEe2w5GC4n8+VMRAkVSQTtMN66IftYjdHYMpfTweN9YVf+X8w4K+ujnJmjU+aCLlFHJpIKDpZsqslS71qnukvcrqa5R5aiRT2ehsxZ6wjkx8l0aZlPppWuyl9xxk3irNeV8wEUVZzKYYrVE8C4eZh/k6aT7+bD7N60rGKWWguSNAkk6dWBDEJkwSt4aDJHL3aM/EAgB8BHDFzuA2sj842nGT2jzdnQPoz7Hw9apUlAcR3RM99AaqPAKHWldnijnbeOtCbhOn1j8hj1y0de/zK78Prc9NSLtjt1F0S8fuZiMUhEsLIF7PqazNsrDHkEVATR+4d9TvVS6e8anf5p18sHxPVmEa/rfP60k0RSWuKbCr/aL+6rixR3t1Go646GVhis08+yF/C8COLEE62LAOs1CRiuK83fd+15SeGzf8CcgGorF/8DfgII7JgfHhAAAA==</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>04fe2ddc-42cc-11ea-b231-00155d980203</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>758</ID>
+					<Form>3</Form>
+					<Name>Top Level OU</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Active Directory Cleanup (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Top level OU name under the domain root. This is used for scripting purposes.</Fill>
+					<LtGuid>db7cdfe7-cb02-4eb1-ac50-967c7f2f855f</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>true</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions>1</EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>203</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Testing</Name>
+					<GUID>ae973593-aaee-4aec-9b63-53a0399a44b3</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
