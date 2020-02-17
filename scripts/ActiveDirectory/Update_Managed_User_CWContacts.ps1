@@ -19,7 +19,6 @@ If (Test-Path $cwmlib) {
 }
 
 If (Get-Module -ListAvailable -Name SimplySQL) {
-    
     Try {
         Import-Module SimplySQL -ErrorAction Stop
     } Catch {
@@ -36,8 +35,8 @@ If (Get-Module -ListAvailable -Name SimplySQL) {
 }
 
 
-
 $Auth = Get-CWMAuth -ErrorAction Stop
+$QueryResults = $NULL
 $RemoveContactFlag = $NULL
 $i = 0
 $PageSize = 200
@@ -88,7 +87,10 @@ Try {
 }
 
 If ($QueryResults.Count) {
-    
+    Write-Host "QueryResults.Count contact(s) found in query." 
+} Else {
+    Write-Host "Query found no contacts to update. Exiting script."
+    Exit  
 }
 
 ForEach ($c IN $QueryResults.Contact_ExternalID) {
