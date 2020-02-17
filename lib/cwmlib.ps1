@@ -16,8 +16,6 @@ Function Get-CWMAuth() {
         )
     
     $RetVal = $Null
-    #$PublicKey    = 'VEyt8kopSAUFh0RN'
-    #$PrivateKey   = 'BuNFIrIgG43GfL9P'
     $Authstring   = "SWCOS+$($PublicKey):$($PrivateKey)"
     $EncodedAuth  = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(($Authstring)))
     
