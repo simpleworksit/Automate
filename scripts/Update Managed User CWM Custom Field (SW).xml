@@ -1,0 +1,49 @@
+﻿<LabTech_Expansion
+	Version="190.333"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6390</ScriptId>
+				<FolderId>268</FolderId>
+				<ScriptName>Update Managed User CWM Custom Field (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-02-17
+Description: Updates the Managed User Contact Field in CWM based off of who is in the Managed Users OU.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoSLY1tpYlF/8uFkTFe/4OuaQlbcC+vbYo1NMwO3yzDF68caF3BzUoiY+xcxKQzYq3FPZtCoOLkiNbODy+Oh8nxsmmDVaNGTk5HZOKI4EyIznPOSlr4PVGkGuDbAHg3UTfDU8Xe9+Gqfn/8M3PyVupoeIlGEsFaE0BnKLabAvKOQhhd9XnTfHjZwDZcs969QYkywO53wAAAA==</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAOVUXUvDMBR9F/wPZbDH2mazukkpjM2NwUShm74ERtpct0CbliR1+u/tRzqzgsMX8cGn3nPOzc2955L6YSxYrmZEkeDywrL8BssalPD+XQlSqXMGCZWW0wpPRJAUFAiDWyRZRBKDaIo9l0ks4wHynVPiJGtRMBpEaOTeopjaHooiGyEgdhTfDG3XRZ5HxyN34A7bKvWBumfHbFqXCxXkxykmsdIN6Ejz84LXeEkrzUDmkKgz9KCDhx183cGe4UcmVOCW/VZfzU0zrhgvoOKPsdYe5YqlrD7ShlpZcgpckXqYUjWhacmXC2dsGZyxpfb7O2OC6R1ercM9EYDXgnD5CgLLw44pPClUlhIFWDarwdUNbzBjAmKViQ+8yWkpbx8IJzug240EsZ2+VAaQWMmrXCLLjg9pwiKr94NryjzcpFdHe76jO/y/ixuf2Vs/zw7lG9xDkgiQRaL6v2IY+gPDWqz/aJ8yqc+24AQAAA==</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>b18071cd-51bb-11ea-bc63-00155d980203</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>268</FolderID>
+					<ParentID>267</ParentID>
+					<Name>Active Directory (SW)</Name>
+					<GUID>a46f32b0-2e8a-46c2-98c9-80606a6f43e8</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>267</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks Scripts (SW)</Name>
+					<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>

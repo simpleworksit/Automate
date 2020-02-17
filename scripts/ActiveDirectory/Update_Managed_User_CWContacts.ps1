@@ -86,7 +86,7 @@ Try {
 }
 
 If ($QueryResults.Count) {
-    Write-Host "$QueryResults.Contact_ExternalID.Count contact(s) found in query." 
+    Write-Host "$($QueryResults.Contact_ExternalID.Count) contact(s) found in query." 
 } Else {
     Write-Host "Query found no contacts to update. Exiting script."
     Exit  
