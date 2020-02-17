@@ -102,3 +102,5 @@ ForEach ($c IN $RemoveContactFlag.id) {
         }
     }
 }
+
+Write-Host "Contacts have been updated."
