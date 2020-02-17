@@ -8,7 +8,13 @@ It queries the labtech database to determine which users are in the Managed User
 [CmdletBinding()]
         Param(
             [Parameter(Mandatory=$true)]
-            [String]$cwmlib
+            [String]$cwmlib,
+            [Parameter(Mandatory=$true)]
+            [String]$PublicKey,
+            [Parameter(Mandatory=$true)]
+            [String]$PrivateKey,
+            [Parameter(Mandatory=$true)]
+            [String]$ClientID
         )
 
 If (Test-Path $cwmlib) {
@@ -34,13 +40,11 @@ If (Get-Module -ListAvailable -Name SimplySQL) {
     }
 }
 
-$Auth = Get-CWMAuth -ErrorAction Stop
 $QueryResults = $NULL
 $RemoveContactFlag = $NULL
-$i = 0
 $j = 0
-$PageSize = 200
-$Page = 1
+
+$Auth = Get-CWMAuth -PublicKey $PublicKey -PrivateKey $PrivateKey -ClientID $ClientID -ErrorAction Stop
 $DBPW = ConvertTo-SecureString 'QOxgJAm3kSChqw_9' -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential (“swautomate”, $DBPW)
 $CWAutomateUsersQuery = 
@@ -95,7 +99,7 @@ If ($QueryResults.Count) {
 
 ForEach ($c IN $QueryResults.Contact_ExternalID) {
     Try {
-        Set-ContactCustomField -ContactID $c -ID 7 -Caption "Managed User (SW)" -Type "Checkbox" -Value $True
+        Set-ContactCustomField -Auth $Auth -ContactID $c -ID 7 -Caption "Managed User (SW)" -Type "Checkbox" -Value $True
     } Catch {
         Write-Host "Could not update contact $c. $_"
     }
@@ -103,30 +107,13 @@ ForEach ($c IN $QueryResults.Contact_ExternalID) {
 
 Write-Host "$($QueryResults.Contact_ExternalID.Count) contact(s) have had the Managed User (SW) custom field checked."
 
-While (($i -ne 0) -OR ($i.count -ne 0)) {
-   
-    $AddURI = "company/contacts?pagesize=$PageSize&Page=$Page&customFieldConditions=caption='Managed User (SW)' AND Value = True"
-    $FullURI = $Auth.BaseURI + $AddURI
-    
-    Try {
-        $i = Invoke-RestMethod -Uri $FullURI -Method Get -Headers $Auth.Header -ErrorAction Stop
-    } Catch {
-        Throw $_
-    }
+$RemoveContactFlags = Get-ContactCustomFields -Auth $Auth -Caption "Managed User (SW)" -Value $True -PageSize 200
 
-    $Page++
-
-    If ($i.Count) {
-        $RemoveContactFlag += $i
-    }
-
-}
-
-ForEach ($c IN $RemoveContactFlag.id) {
+ForEach ($c IN $RemoveContactFlags.id) {
     If ($c -NOTIN $QueryResults.Contact_ExternalID) {
                 
         Try {
-            Set-ContactCustomField -ContactID $c -ID 7 -Caption "Managed User (SW)" -Type "Checkbox" -Value $False -ErrorAction Stop
+            Set-ContactCustomField -Auth $Auth -ContactID $c -ID 7 -Caption "Managed User (SW)" -Type "Checkbox" -Value $False -ErrorAction Stop
         } Catch {
             Write-Host "Could not update contact $c. $_"
         }

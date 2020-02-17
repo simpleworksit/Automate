@@ -7,11 +7,17 @@ Description: Gets the basic variables for authentication for the other CWM funct
 Function Get-CWMAuth() {
     [CmdletBinding()]
         Param(
+        [Parameter(Mandatory=$true)]
+            [STRING]$PublicKey,
+        [Parameter(Mandatory=$true)]
+            [STRING]$PrivateKey,
+        [Parameter(Mandatory=$true)]
+            [STRING]$ClientID
         )
     
     $RetVal = $Null
-    $PublicKey    = 'VEyt8kopSAUFh0RN'
-    $PrivateKey   = 'BuNFIrIgG43GfL9P'
+    #$PublicKey    = 'VEyt8kopSAUFh0RN'
+    #$PrivateKey   = 'BuNFIrIgG43GfL9P'
     $Authstring   = "SWCOS+$($PublicKey):$($PrivateKey)"
     $EncodedAuth  = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(($Authstring)))
     
@@ -22,7 +28,7 @@ Function Get-CWMAuth() {
         ContentType  = "application/json"
         Header       = @{
                             Authorization = ("Basic $encodedAuth")
-                            ClientID = "5a6dea14-5363-481c-9336-6c19aafe19f7"
+                            ClientID = $ClientID
                         }
     }
 
@@ -50,6 +56,8 @@ Function Set-ContactCustomField() {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory=$true)]
+            $Auth,
+        [Parameter(Mandatory=$true)]
             [INT]$ContactID,
         [Parameter(Mandatory=$true)]
             [INT]$ID,
@@ -60,8 +68,6 @@ Function Set-ContactCustomField() {
         [Parameter(Mandatory=$true)]
             $Value
     )
-
-    $Auth = Get-CWMAuth
 
     [STRING]$AddURI      = "company/contacts/$ContactID"
     [STRING]$FullURI     = $Auth.BaseURI + $AddURI 
@@ -88,4 +94,49 @@ Function Set-ContactCustomField() {
     } Catch {
         Throw $_
     }
+}
+
+<#
+Author: Shea Bryarly
+Date: 2020-02-17
+Description: Gets Contact Custom Fields.
+#>
+
+Function Get-ContactCustomFields() {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$true)]
+            $Auth,
+        [Parameter(Mandatory=$true)]
+            [STRING]$Caption,
+        [Parameter(Mandatory=$true)]
+            $Value,
+        [Parameter(Mandatory=$true)]
+            [INT]$PageSize
+    )
+
+    $Page = 1
+    $i = 0
+    $RetVal = $NULL
+
+    While (($i -ne 0) -OR ($i.count -ne 0)) {
+   
+            $AddURI = "company/contacts?pagesize=$PageSize&Page=$Page&customFieldConditions=caption='$($Caption)' AND Value = '$($Value)'"
+            $FullURI = $Auth.BaseURI + $AddURI
+    
+            Try {
+                $i = Invoke-RestMethod -Uri $FullURI -Method Get -Headers $Auth.Header -ErrorAction Stop
+            } Catch {
+                Throw $_
+            }
+
+            $Page++
+
+            If ($i.Count) {
+                $RetVal += $i
+            }
+
+        }
+
+    Return $RetVal
 }
