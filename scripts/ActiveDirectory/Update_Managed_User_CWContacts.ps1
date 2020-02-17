@@ -18,6 +18,25 @@ If (Test-Path $cwmlib) {
     Exit
 }
 
+If (Get-Module -ListAvailable -Name SimplySQL) {
+    
+    Try {
+        Import-Module SimplySQL -ErrorAction Stop
+    } Catch {
+        Throw $_
+    }
+
+} Else {
+    Try {
+        Install-Module -Name SimplySQL -ErrorAction Stop
+        Import-Module SimplySQL -ErrorAction Stop
+    } Catch {
+        Throw $_
+    }
+}
+
+
+
 $Auth = Get-CWMAuth -ErrorAction Stop
 $RemoveContactFlag = $NULL
 $i = 0
@@ -66,6 +85,10 @@ Try {
 } Catch {
     Write-Host "Could not query database. $_"
     Exit
+}
+
+If ($QueryResults.Count) {
+    
 }
 
 ForEach ($c IN $QueryResults.Contact_ExternalID) {
