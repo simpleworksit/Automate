@@ -38,6 +38,7 @@ $Auth = Get-CWMAuth -ErrorAction Stop
 $QueryResults = $NULL
 $RemoveContactFlag = $NULL
 $i = 0
+$j = 0
 $PageSize = 200
 $Page = 1
 $DBPW = ConvertTo-SecureString 'QOxgJAm3kSChqw_9' -AsPlainText -Force
@@ -100,6 +101,8 @@ ForEach ($c IN $QueryResults.Contact_ExternalID) {
     }
 }
 
+Write-Host "$($QueryResults.Contact_ExternalID.Count) contact(s) have had the Managed User (SW) custom field checked."
+
 While (($i -ne 0) -OR ($i.count -ne 0)) {
    
     $AddURI = "company/contacts?pagesize=$PageSize&Page=$Page&customFieldConditions=caption='Managed User (SW)' AND Value = True"
@@ -121,12 +124,19 @@ While (($i -ne 0) -OR ($i.count -ne 0)) {
 
 ForEach ($c IN $RemoveContactFlag.id) {
     If ($c -NOTIN $QueryResults.Contact_ExternalID) {
+                
         Try {
             Set-ContactCustomField -ContactID $c -ID 7 -Caption "Managed User (SW)" -Type "Checkbox" -Value $False -ErrorAction Stop
         } Catch {
             Write-Host "Could not update contact $c. $_"
         }
+        
+        $j++
     }
 }
 
-Write-Host "Contacts have been updated."
+If ($j) {
+    Write-Host "$j contact(s) have had the Managed User (SW) custom field unchecked."
+}
+
+Write-Host "Script has completed."
