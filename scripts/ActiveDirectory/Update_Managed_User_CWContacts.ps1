@@ -87,7 +87,7 @@ Try {
 }
 
 If ($QueryResults.Count) {
-    Write-Host "QueryResults.Count contact(s) found in query." 
+    Write-Host "$QueryResults.Count contact(s) found in query." 
 } Else {
     Write-Host "Query found no contacts to update. Exiting script."
     Exit  
