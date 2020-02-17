@@ -58,12 +58,14 @@ Try {
     $DBSession = Open-MySqlConnection -ConnectionName "PSConnection" -Server "SVR-SW-LT01" -Database "labtech" -Credential $Credentials
 } Catch {
     Write-Host "Could not connect to database. $_"
+    Exit
 }
 
 Try {
     $QueryResults = Invoke-SqlQuery -ConnectionName "PSConnection" -Query $CWAutomateUsersQuery
 } Catch {
     Write-Host "Could not query database. $_"
+    Exit
 }
 
 ForEach ($c IN $QueryResults.Contact_ExternalID) {
