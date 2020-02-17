@@ -5,7 +5,18 @@ Description: This script updates the Managed User (SW) custom field in CW Manage
 It queries the labtech database to determine which users are in the Managed Users OU to make the determination.
 #>
 
-. C:\swgit\Automate\lib\cwmlib.ps1
+[CmdletBinding()]
+        Param(
+            [Parameter(Mandatory=$true)]
+            [String]$cwmlib
+        )
+
+If (Test-Path $cwmlib) {
+    . $cwmlib
+} Else {
+    Write-Host "Can't find cwmlib. Exiting Script"
+    Exit
+}
 
 $Auth = Get-CWMAuth -ErrorAction Stop
 $RemoveContactFlag = $NULL
@@ -44,7 +55,7 @@ $CWAutomateUsersQuery =
     "
 
 Try {
-    $DBSession = Open-MySqlConnection -ConnectionName "PSConnection" -Server SVR-SW-LT01 -Database labtech -Credential $Credentials
+    $DBSession = Open-MySqlConnection -ConnectionName "PSConnection" -Server "SVR-SW-LT01" -Database "labtech" -Credential $Credentials
 } Catch {
     Write-Host "Could not connect to database. $_"
 }
