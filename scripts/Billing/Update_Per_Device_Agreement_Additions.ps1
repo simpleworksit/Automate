@@ -108,7 +108,7 @@ ForEach ($comp In $QueryResults) {
             }
 
             Try {
-                $WebrootAddition = Get-AgreementAdditions -Auth $Auth -PageSize 200 -AgreementID $wsid -Conditions "agreementStatus='Active' AND product/id=2368"
+                $AVAddition = Get-AgreementAdditions -Auth $Auth -PageSize 200 -AgreementID $wsid -Conditions "agreementStatus='Active' AND product/id=2368"
             } Catch {
                 Throw $_
             }
@@ -124,24 +124,30 @@ ForEach ($comp In $QueryResults) {
                 } Catch {
                     Throw $_
                 }
-                If ($WebrootAddition.Count) {
-                    Write-Host "Found more than one Antivirus agreement addition."
-                } ElseIf ($WebrootAddition) {
-                    Write-Host "Setting workstation agreement addition line item from $($WebrootAddition.quantity) to $($comp.WS_Count)."
-                    Try {
-                        Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $WebrootAddition.agreementid -AdditionID $WebrootAddition.id -Quantity $comp.WS_Count | Out-Null
-                    } Catch {
-                        Throw $_
-                    }
-                } Else {
-                    Write-Host "There are no AntiVirus line items found."
-                }
             } Else {
-                Write-Host "Quantity is already correct."
+                Write-Host "Workstation quantity is already correct."
             }
         } Else {
             Write-Host "There are no workstation line items found."
         }
+
+        If ($AVAddition.Count) {
+            Write-Host "Found more than one Antivirus agreement addition."
+        } ElseIf ($AVAddition) {
+            If ($comp.WS_Count -ne $AVAddition.quantity) {
+                Write-Host "Setting workstation agreement addition line item from $($AVAddition.quantity) to $($comp.WS_Count)."
+                Try {
+                    Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $AVAddition.agreementid -AdditionID $AVAddition.id -Quantity $comp.WS_Count | Out-Null
+                } Catch {
+                    Throw $_
+                }
+            } Else {
+                Write-Host "AV quantity is already correct."
+            }
+        } Else {
+            Write-Host "There are no AntiVirus line items found."
+        }
+
     } Else {
         Write-Host "There are no workstation agreements found."
     }
