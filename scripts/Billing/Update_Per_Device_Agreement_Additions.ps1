@@ -81,12 +81,14 @@ Try {
 If ($QueryResults) {
     Write-Host "Workstation count query has found records."
 } Else {
+    Write-Host "There was no data in the query results."
    Throw $_
 }
 
 Write-Host "Looping through company agreements."
-ForEach ($comp In $QueryResults) {
 
+ForEach ($comp In $QueryResults) {
+    
     Write-Host "Checking $($comp.CWCompanyName) agreement workstation counts."
     Try {
         $wsagr = Get-Agreements -Auth $Auth -PageSize 200 -Conditions "agreementStatus='Active' AND type/id=18 AND company/id=$($comp.CWCompanyRecID)"
@@ -96,14 +98,13 @@ ForEach ($comp In $QueryResults) {
 
     If ($wsagr.Count) {
         Write-Host "Found more than one active workstation agreement."
-    } Else {
+    } ElseIf ($wsagr) {
         ForEach ($wsid In $wsagr.ID) {
-            
             $addition = Get-AgreementAdditions -Auth $Auth -PageSize 200 -AgreementID $wsid -Conditions "agreementStatus='Active' AND product/id=752"
         }
         If ($addition.Count) {
             Write-Host "Found more than one active workstation agreement addition."
-        } Else {
+        } ElseIf ($addition) {
             If ($comp.WS_Count -ne $addition.quantity) {
                 Write-Host "Setting workstation agreement addition line item from $($addition.quantity) to $($comp.WS_Count)."
                 Try {
@@ -114,6 +115,12 @@ ForEach ($comp In $QueryResults) {
             } Else {
                 Write-Host "Quantity is already correct."
             }
+        } Else {
+            Write-Host "There are no workstation line items found."
         }
+    } Else {
+        Write-Host "There are no workstation agreements found."
     }
 }
+
+Write-Host "The script has completed."
