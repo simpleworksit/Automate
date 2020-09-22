@@ -89,7 +89,9 @@ Write-Host "Looping through company agreements."
 
 ForEach ($comp In $QueryResults) {
     
+    Write-Host ""
     Write-Host "Checking $($comp.CWCompanyName) agreement workstation counts."
+
     Try {
         $wsagr = Get-Agreements -Auth $Auth -PageSize 200 -Conditions "agreementStatus='Active' AND type/id=18 AND company/id=$($comp.CWCompanyRecID)"
     } Catch {
