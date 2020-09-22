@@ -107,7 +107,7 @@ ForEach ($comp In $QueryResults) {
             If ($comp.WS_Count -ne $addition.quantity) {
                 Write-Host "Setting workstation agreement addition line item from $($addition.quantity) to $($comp.WS_Count)."
                 Try {
-                    Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $addition.agreementid -AdditionID $addition.id -Quantity $comp.WS_Count
+                    Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $addition.agreementid -AdditionID $addition.id -Quantity $comp.WS_Count | Out-Null
                 } Catch {
                     Throw $_
                 }
