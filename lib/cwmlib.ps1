@@ -138,7 +138,7 @@ Date: 2020-09-22
 Description: Gets agreement addition line item data.
 Example of Conditions: "agreementStatus='Active' AND product/id=752"
 #>
-Function Get-AgrAdditions() {
+Function Get-AgreementAdditions() {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory=$true)]
@@ -148,7 +148,7 @@ Function Get-AgrAdditions() {
         [Parameter(Mandatory=$false)]
             [INT]$AgreementID,
         [Parameter(Mandatory=$false)]
-            [INT]$Conditions
+            [STRING]$Conditions
     )
 
     $Page = 1
