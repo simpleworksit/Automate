@@ -104,10 +104,10 @@ ForEach ($comp In $QueryResults) {
         If ($addition.Count) {
             Write-Host "Found more than one active workstation agreement addition."
         } Else {
-            If ($QueryResults.WS_Count -ne $addition.quantity) {
-                Write-Host "Setting agreement addition line item to correct count."
+            If ($comp.WS_Count -ne $addition.quantity) {
+                Write-Host "Setting workstation agreement addition line item from $($addition.quantity) to $($comp.WS_Count)."
                 Try {
-                    Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $addition.agreementid -AdditionID $addition.id -Quantity $QueryResults.WS_Count
+                    Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $addition.agreementid -AdditionID $addition.id -Quantity $comp.WS_Count
                 } Catch {
                     Throw $_
                 }
