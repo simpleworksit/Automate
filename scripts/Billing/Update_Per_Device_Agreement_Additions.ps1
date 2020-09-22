@@ -89,8 +89,7 @@ Write-Host "Looping through company agreements."
 
 ForEach ($comp In $QueryResults) {
     
-    Write-Host ""
-    Write-Host "Checking $($comp.CWCompanyName) agreement workstation counts."
+    Write-Host "Checking $($comp.CWCompanyName) agreement workstation counts./n"
 
     Try {
         $wsagr = Get-Agreements -Auth $Auth -PageSize 200 -Conditions "agreementStatus='Active' AND type/id=18 AND company/id=$($comp.CWCompanyRecID)"
@@ -125,4 +124,4 @@ ForEach ($comp In $QueryResults) {
     }
 }
 
-Write-Host "The script has completed."
+Write-Host "/nThe script has completed."
