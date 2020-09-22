@@ -1,4 +1,10 @@
 ﻿<#
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Getter Functions
+-------------------------------------------------------------------------------------------------------------------------------------------------
+#>
+
+<#
 Function Get-CWMAuth
 Author: Shea Bryarly
 Date: 2020-02-17
@@ -32,6 +38,155 @@ Function Get-CWMAuth() {
 
     Return $RetVal
 }
+
+<#
+Author: Shea Bryarly
+Date: 2020-02-17
+Description: Gets Contact Custom Fields.
+#>
+
+Function Get-ContactCustomFields() {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$true)]
+            $Auth,
+        [Parameter(Mandatory=$true)]
+            [STRING]$Caption,
+        [Parameter(Mandatory=$true)]
+            $Value,
+        [Parameter(Mandatory=$true)]
+            [INT]$PageSize
+    )
+
+    $Page = 1
+    $i = 0
+    $RetVal = $NULL
+
+    While (($i -ne 0) -OR ($i.count -ne 0)) {
+   
+            $AddURI = "company/contacts?pagesize=$PageSize&Page=$Page&customFieldConditions=caption='$($Caption)' AND Value = '$($Value)'"
+            $FullURI = $Auth.BaseURI + $AddURI
+    
+            Try {
+                $i = Invoke-RestMethod -Uri $FullURI -Method Get -Headers $Auth.Header -ErrorAction Stop
+            } Catch {
+                Throw $_
+            }
+
+            $Page++
+
+            If ($i.Count) {
+                $RetVal += $i
+            }
+
+        }
+
+    Return $RetVal
+}
+
+<#
+Author: Shea Bryarly
+Date: 2020-09-22
+Description: Gets agreement data.
+Example of Conditions: "agreementStatus='Active' AND type/id=18"
+#>
+Function Get-Agreements() {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$true)]
+            $Auth,
+        [Parameter(Mandatory=$true)]
+            [INT]$PageSize,
+        [Parameter(Mandatory=$false)]
+            [STRING]$Conditions
+    )
+
+    $Page = 1
+    $i = 0
+    $RetVal = $NULL
+
+    While (($i -ne 0) -OR ($i.count -ne 0)) {
+ 
+            If ($Conditions) {
+                $AddURI = "finance/agreements?pagesize=$PageSize&page=$Page&Conditions=$Conditions"
+            } Else {
+                $AddURI = "finance/agreements?pagesize=$PageSize&page=$Page"
+            }
+            
+            $FullURI = $Auth.BaseURI + $AddURI
+    
+            Try {
+                $i = Invoke-RestMethod -Uri $FullURI -Method Get -Headers $Auth.Header -ErrorAction Stop
+            } Catch {
+                Throw $_
+            }
+
+            $Page++
+
+            If ($i.Count) {
+                $RetVal += $i
+            }
+
+        }
+
+    Return $RetVal
+}
+
+<#
+Author: Shea Bryarly
+Date: 2020-09-22
+Description: Gets agreement addition line item data.
+Example of Conditions: "agreementStatus='Active' AND product/id=752"
+#>
+Function Get-AgrAdditions() {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$true)]
+            $Auth,
+        [Parameter(Mandatory=$true)]
+            [INT]$PageSize,
+        [Parameter(Mandatory=$false)]
+            [INT]$AgreementID,
+        [Parameter(Mandatory=$false)]
+            [INT]$Conditions
+    )
+
+    $Page = 1
+    $i = 0
+    $RetVal = $NULL
+
+    While (($i -ne 0) -OR ($i.count -ne 0)) {
+            
+            If ($Conditions) {
+                $AddURI = "finance/agreements/$AgreementID/additions?pagesize=$PageSize&page=$Page&Conditions=$Conditions"
+            } Else {
+                $AddURI = "finance/agreements/$AgreementID/additions?pagesize=$PageSize&page=$Page"
+            }
+
+            $FullURI = $Auth.BaseURI + $AddURI
+    
+            Try {
+                $i = Invoke-RestMethod -Uri $FullURI -Method Get -Headers $Auth.Header -ErrorAction Stop
+            } Catch {
+                Throw $_
+            }
+
+            $Page++
+
+            If ($i.Count) {
+                $RetVal += $i
+            }
+
+        }
+
+    Return $RetVal
+}
+
+<#
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Setter Functions
+-------------------------------------------------------------------------------------------------------------------------------------------------
+#>
 
 <#
 Functon Set-ContactCustomField
@@ -96,45 +251,38 @@ Function Set-ContactCustomField() {
 
 <#
 Author: Shea Bryarly
-Date: 2020-02-17
-Description: Gets Contact Custom Fields.
+Date: 2020-09-22
+Description: Sets the quantity of Agreement additions.
 #>
-
-Function Get-ContactCustomFields() {
+Function Set-AgreementAdditionQuantity() {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory=$true)]
             $Auth,
         [Parameter(Mandatory=$true)]
-            [STRING]$Caption,
+            [INT]$AgreementID,
         [Parameter(Mandatory=$true)]
-            $Value,
+            [INT]$AdditionID,
         [Parameter(Mandatory=$true)]
-            [INT]$PageSize
+            [INT]$Quantity
     )
 
-    $Page = 1
-    $i = 0
     $RetVal = $NULL
-
-    While (($i -ne 0) -OR ($i.count -ne 0)) {
-   
-            $AddURI = "company/contacts?pagesize=$PageSize&Page=$Page&customFieldConditions=caption='$($Caption)' AND Value = '$($Value)'"
-            $FullURI = $Auth.BaseURI + $AddURI
-    
-            Try {
-                $i = Invoke-RestMethod -Uri $FullURI -Method Get -Headers $Auth.Header -ErrorAction Stop
-            } Catch {
-                Throw $_
-            }
-
-            $Page++
-
-            If ($i.Count) {
-                $RetVal += $i
-            }
-
+    $Body = "[{
+            op: 'replace',
+            path: 'quantity',
+            value: '$($Quantity)'
         }
+    ]"
+
+    $AddURI = "finance/agreements/$AgreementID/additions/$AdditionID"
+    $FullURI = $Auth.BaseURI + $AddURI
+
+    Try {
+        $RetVal = Invoke-RestMethod -Uri $FullURI -Method Patch -Headers $Auth.Header -Body $Body -ContentType $Auth.ContentType -ErrorAction Stop
+    } Catch {
+        Throw $_
+    }
 
     Return $RetVal
 }
