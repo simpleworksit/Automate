@@ -135,14 +135,14 @@ ForEach ($comp In $QueryResults) {
             Write-Host "Found more than one Antivirus agreement addition."
         } ElseIf ($AVAddition) {
             If ($comp.WS_Count -ne $AVAddition.quantity) {
-                Write-Host "Setting workstation agreement addition line item from $($AVAddition.quantity) to $($comp.WS_Count)."
+                Write-Host "Setting AntiVirus agreement addition line item from $($AVAddition.quantity) to $($comp.WS_Count)."
                 Try {
                     Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $AVAddition.agreementid -AdditionID $AVAddition.id -Quantity $comp.WS_Count | Out-Null
                 } Catch {
                     Throw $_
                 }
             } Else {
-                Write-Host "AV quantity is already correct."
+                Write-Host "AntiVirus quantity is already correct."
             }
         } Else {
             Write-Host "There are no AntiVirus line items found."
