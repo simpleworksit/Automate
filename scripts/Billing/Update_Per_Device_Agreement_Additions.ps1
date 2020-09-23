@@ -196,20 +196,21 @@ ForEach ($comp In $QueryResults) {
         #Check to see if there is only one line item on the agreement for AntiVirus. If so, update the line item if the count is not equal to Automate workstation counts.
         If ($ServiceDefinitionID -eq 5) {
             If ($AVAddition.Count) {
-                Write-Host "Found more than one Antivirus agreement addition."
+                Write-Host "Found more than one AGR:CONTRACT LICENSE-ANTIVIRUS agreement addition."
             } ElseIf ($AVAddition) {
                 If ($comp.WS_Count -ne $AVAddition.quantity) {
-                    Write-Host "Setting AntiVirus agreement addition line item from $($AVAddition.quantity) to $($comp.WS_Count)."
+                    Write-Host "Setting AGR:CONTRACT LICENSE-ANTIVIRUS agreement addition line item from $($AVAddition.quantity) to $($comp.WS_Count)."
                     Try {
                         Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $AVAddition.agreementid -AdditionID $AVAddition.id -Quantity $comp.WS_Count | Out-Null
+                        $SomethingChanged = 1
                     } Catch {
                         Throw $_
                     }
                 } Else {
-                    Write-Host "AntiVirus quantity is already correct."
+                    Write-Host "AGR:CONTRACT LICENSE-ANTIVIRUS quantity is already correct."
                 }
             } Else {
-                Write-Host "There are no AntiVirus line items found."
+                Write-Host "There are no AGR:CONTRACT LICENSE-ANTIVIRUS line items found."
             }
         }
     } Else {
