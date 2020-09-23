@@ -86,6 +86,7 @@ If (Get-Module -ListAvailable -Name SimplySQL) {
 $Auth = Get-CWMAuth -PublicKey $PublicKey -PrivateKey $PrivateKey -ClientID $ClientID -ErrorAction Stop
 $DBPW = ConvertTo-SecureString 'QOxgJAm3kSChqw_9' -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential (“swautomate”, $DBPW)
+$SomethingChanged = 0
 
 $AutomateWSCountsQuery = 
     "
@@ -181,6 +182,7 @@ ForEach ($comp In $QueryResults) {
                 Write-Host "Setting $($ProductParams[2]) agreement addition line item from $($addition.quantity) to $($comp.WS_Count)."
                 Try {
                     Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $addition.agreementid -AdditionID $addition.id -Quantity $comp.WS_Count | Out-Null
+                    $SomethingChanged = 1
                 } Catch {
                     Throw $_
                 }
@@ -215,4 +217,10 @@ ForEach ($comp In $QueryResults) {
     }
 }
 
-Write-Host "`nFinished updating $($ProductParams[2]) agreement additions."
+If ($SomethingChanged) {
+    Write-Host "`nScript has made updates to agreement additions."
+} Else {
+    Write-Host "`nNo agreement additions have been updated."
+}
+
+Return 0
