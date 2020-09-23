@@ -135,7 +135,8 @@ Try {
 If ($QueryResults) {
     Write-Host "Workstation count query has found records."
 } Else {
-    Write-Host "There was no data in the query results."
+    Write-Host "There was no data in the query results. This may be because no companies are slated to receive automation for $($ProductParams[2])."
+    Write-Host "Exiting script"
     Exit
 }
 
