@@ -48,12 +48,12 @@ The script has completed.
             [INT]$ServiceDefinitionID
         )
 
-$ProductParams = @(0,0,"") #The first element is agreement type ID. The second element is product ID. The third element is the name.
+$ProductParams = @(0,0,"",0) #The first element is agreement type ID. The second element is product ID. The third element is the name. The fourth is the extradatafieldID.
 
 Switch ($ServiceDefinitionID) {
-    5 {$ProductParams[0] = 18; $ProductParams[1] = 752; $ProductParams[2] = "AGR:CONTRACT-WKSTN"}
-    6 {$ProductParams[0] = 12; $ProductParams[1] = 751; $ProductParams[2] = "AGR:CONTRACT-SRVR-PHYSICAL"}
-    9 {$ProductParams[0] = 12; $ProductParams[1] = 2519; $ProductParams[2] = "AGR:CONTRACT-SRVR-VIRTUAL"}
+    5 {$ProductParams[0] = 18; $ProductParams[1] = 752; $ProductParams[2] = "AGR:CONTRACT-WKSTN"; $ProductParams[3] = 778}
+    6 {$ProductParams[0] = 12; $ProductParams[1] = 751; $ProductParams[2] = "AGR:CONTRACT-SRVR-PHYSICAL"; $ProductParams[3] = 779}
+    9 {$ProductParams[0] = 12; $ProductParams[1] = 2519; $ProductParams[2] = "AGR:CONTRACT-SRVR-VIRTUAL"; $ProductParams[3] = 780}
     Default {
         Write-Host "There is no matching managed service definition. Exiting script."
         Exit
@@ -114,6 +114,8 @@ $AutomateWSCountsQuery =
 
     WHERE
 	    ManagedServiceTemplateID = 5
+        AND edf.ExtraFieldID = $($ProductParams[3])
+	    AND edf.Value = 1
     "
 
 Try {
