@@ -110,7 +110,9 @@ $AutomateWSCountsQuery =
 		    GROUP BY
 			    ClientID	
 	    ) AS wsc
-	    ON cwm.ClientID = wsc.ClientID
+	        ON cwm.ClientID = wsc.ClientID
+       JOIN extrafielddata AS edf
+	        ON cwm.clientid = edf.ID
 
     WHERE
 	    ManagedServiceTemplateID = 5
