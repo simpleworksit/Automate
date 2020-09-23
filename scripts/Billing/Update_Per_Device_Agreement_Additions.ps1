@@ -136,7 +136,7 @@ If ($QueryResults) {
     Write-Host "Workstation count query has found records."
 } Else {
     Write-Host "There was no data in the query results."
-   Throw $_
+    Exit
 }
 
 Write-Host "Looping through company agreements."
@@ -215,4 +215,4 @@ ForEach ($comp In $QueryResults) {
     }
 }
 
-Write-Host "`nThe script has completed."
+Write-Host "`nFinished updating $($ProductParams[2]) agreement additions."
