@@ -88,7 +88,7 @@ $DBPW = ConvertTo-SecureString 'QOxgJAm3kSChqw_9' -AsPlainText -Force
 $Credentials = New-Object System.Management.Automation.PSCredential (“swautomate”, $DBPW)
 $SomethingChanged = 0
 
-$AutomateWSCountsQuery = 
+$AutomateCountQuery = 
     "
        SELECT
 	    cwm.CWCompanyRecID
@@ -128,13 +128,13 @@ Try {
 }
 
 Try {
-    $QueryResults = Invoke-SqlQuery -ConnectionName "PSConnection" -Query $AutomateWSCountsQuery
+    $QueryResults = Invoke-SqlQuery -ConnectionName "PSConnection" -Query $AutomateCountQuery
 } Catch {
     Throw $_
 }
 
 If ($QueryResults) {
-    Write-Host "Workstation count query has found records."
+    Write-Host "Query has found records."
 } Else {
     Write-Host "There was no data in the query results. This may be because no companies are slated to receive automation for $($ProductParams[2])."
     Exit
@@ -144,7 +144,7 @@ Write-Host "Looping through company agreements."
 
 ForEach ($comp In $QueryResults) {
     
-    Write-Host "`nChecking $($comp.CWCompanyName)"
+    Write-Host "`nChecking $($comp.CWCompanyName)."
 
     Try {
         $wsagr = Get-Agreements -Auth $Auth -PageSize 200 -Conditions "agreementStatus='Active' AND type/id=$($ProductParams[0]) AND company/id=$($comp.CWCompanyRecID)"
@@ -222,5 +222,3 @@ If ($SomethingChanged) {
 } Else {
     Write-Host "`nNo agreement additions have been updated."
 }
-
-Return 0
