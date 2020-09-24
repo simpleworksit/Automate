@@ -119,6 +119,10 @@ $AutomateCountQuery =
 	    ManagedServiceTemplateID = 5
         AND edf.ExtraFieldID = $($ProductParams[3])
 	    AND edf.Value = 1
+    
+    ORDER BY
+        cwm.CWCompanyName
+
     "
 
 Try {
