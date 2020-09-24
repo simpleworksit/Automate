@@ -93,14 +93,14 @@ $AutomateCountQuery =
        SELECT
 	    cwm.CWCompanyRecID
 	    ,cwm.CWCompanyName
-	    ,wsc.WS_Count
+	    ,wsc.Device_Count
 
     FROM
 	    `plugin_cw_clientmapping` AS cwm
 	    JOIN (
 		    SELECT
 			    cli.clientid
-			    ,COUNT(ComputerID) WS_Count
+			    ,COUNT(ComputerID) AS Device_Count
 		    FROM
 			    clients AS cli
 			    JOIN v_mngd_svc_computers AS svc
@@ -182,10 +182,10 @@ ForEach ($comp In $QueryResults) {
         If ($addition.Count) {
             Write-Host "Found more than one active $($ProductParams[2]) agreement addition."
         } ElseIf ($addition) {
-            If ($comp.WS_Count -ne $addition.quantity) {
-                Write-Host "Setting $($ProductParams[2]) agreement addition line item from $($addition.quantity) to $($comp.WS_Count)."
+            If ($comp.Device_Count -ne $addition.quantity) {
+                Write-Host "Setting $($ProductParams[2]) agreement addition line item from $($addition.quantity) to $($comp.Device_Count)."
                 Try {
-                    Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $addition.agreementid -AdditionID $addition.id -Quantity $comp.WS_Count | Out-Null
+                    Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $addition.agreementid -AdditionID $addition.id -Quantity $comp.Device_Count | Out-Null
                     $SomethingChanged = 1
                 } Catch {
                     Throw $_
@@ -202,10 +202,10 @@ ForEach ($comp In $QueryResults) {
             If ($AVAddition.Count) {
                 Write-Host "Found more than one AGR:CONTRACT LICENSE-ANTIVIRUS agreement addition."
             } ElseIf ($AVAddition) {
-                If ($comp.WS_Count -ne $AVAddition.quantity) {
-                    Write-Host "Setting AGR:CONTRACT LICENSE-ANTIVIRUS agreement addition line item from $($AVAddition.quantity) to $($comp.WS_Count)."
+                If ($comp.Device_Count -ne $AVAddition.quantity) {
+                    Write-Host "Setting AGR:CONTRACT LICENSE-ANTIVIRUS agreement addition line item from $($AVAddition.quantity) to $($comp.Device_Count)."
                     Try {
-                        Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $AVAddition.agreementid -AdditionID $AVAddition.id -Quantity $comp.WS_Count | Out-Null
+                        Set-AgreementAdditionQuantity -Auth $Auth -AgreementID $AVAddition.agreementid -AdditionID $AVAddition.id -Quantity $comp.Device_Count | Out-Null
                         $SomethingChanged = 1
                     } Catch {
                         Throw $_
