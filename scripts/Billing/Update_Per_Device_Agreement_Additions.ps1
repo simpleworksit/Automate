@@ -146,8 +146,6 @@ If ($QueryResults) {
     Exit
 }
 
-Write-Host "Looping through company agreements."
-
 ForEach ($comp In $QueryResults) {
     
     Write-Host "`nChecking $($comp.CWCompanyName)."
