@@ -48,14 +48,14 @@ The script has completed.
             [INT]$ServiceDefinitionID
         )
 
-$ProductParams = @(0,0,"",0,"") #The first element is agreement type ID. The second element is product ID. The third element is the name. The fourth is the extradatafieldID. The fifth is the table being queried from.
+$ProductParams = @(0,0,"",0,"","") #The first element is agreement type ID. The second element is product ID. The third element is the name. The fourth is the extradatafieldID. The fifth is the table being queried from. The sixth is the column name counted in the query.
 
 Switch ($ServiceDefinitionID) {
-    5 {$ProductParams[0] = 18; $ProductParams[1] = 752; $ProductParams[2] = "AGR:CONTRACT-WKSTN"; $ProductParams[3] = 778; $ProductParams[4] = "v_mngd_svc_computers"}
-    6 {$ProductParams[0] = 12; $ProductParams[1] = 751; $ProductParams[2] = "AGR:CONTRACT-SRVR-PHYSICAL"; $ProductParams[3] = 779; $ProductParams[4] = "v_mngd_svc_computers"}
-    8 {$ProductParams[0] = 12; $ProductParams[1] = 4199; $ProductParams[2] = "AGR:CONTRACT-HYPER V HT"; $ProductParams[3] = 783; $ProductParams[4] = "v_mngd_svc_computers"}
-    9 {$ProductParams[0] = 12; $ProductParams[1] = 2519; $ProductParams[2] = "AGR:CONTRACT-SRVR-VIRTUAL"; $ProductParams[3] = 780; $ProductParams[4] = "v_mngd_svc_computers"}
-   10 {$ProductParams[0] = 12; $ProductParams[1] = 4200; $ProductParams[2] = "AGR:CONTRACT-VMWARE HT"; $ProductParams[3] = 784; $ProductParams[4] = "v_mngd_svc_networkdevices"}
+    5 {$ProductParams[0] = 18; $ProductParams[1] = 752; $ProductParams[2] = "AGR:CONTRACT-WKSTN"; $ProductParams[3] = 778; $ProductParams[4] = "v_mngd_svc_computers"; $ProductParams[5] = "ComputerID"}
+    6 {$ProductParams[0] = 12; $ProductParams[1] = 751; $ProductParams[2] = "AGR:CONTRACT-SRVR-PHYSICAL"; $ProductParams[3] = 779; $ProductParams[4] = "v_mngd_svc_computers"; $ProductParams[5] = "ComputerID"}
+    8 {$ProductParams[0] = 12; $ProductParams[1] = 4199; $ProductParams[2] = "AGR:CONTRACT-HYPER V HT"; $ProductParams[3] = 783; $ProductParams[4] = "v_mngd_svc_computers"; $ProductParams[5] = "ComputerID"}
+    9 {$ProductParams[0] = 12; $ProductParams[1] = 2519; $ProductParams[2] = "AGR:CONTRACT-SRVR-VIRTUAL"; $ProductParams[3] = 780; $ProductParams[4] = "v_mngd_svc_computers"; $ProductParams[5] = "ComputerID"}
+   10 {$ProductParams[0] = 12; $ProductParams[1] = 4200; $ProductParams[2] = "AGR:CONTRACT-VMWARE HT"; $ProductParams[3] = 784; $ProductParams[4] = "v_mngd_svc_networkdevices"; $ProductParams[5] = "DeviceID"}
     Default {
         Write-Host "There is no matching managed service definition. Exiting script."
         Exit
@@ -102,7 +102,7 @@ $AutomateCountQuery =
 	    JOIN (
 		    SELECT
 			    cli.clientid
-			    ,COUNT(ComputerID) AS Device_Count
+			    ,COUNT($($ProductParams[5])) AS Device_Count
 		    FROM
 			    clients AS cli
 			    JOIN $($ProductParams[4]) AS svc
