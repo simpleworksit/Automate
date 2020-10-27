@@ -48,12 +48,14 @@ The script has completed.
             [INT]$ServiceDefinitionID
         )
 
-$ProductParams = @(0,0,"",0) #The first element is agreement type ID. The second element is product ID. The third element is the name. The fourth is the extradatafieldID.
+$ProductParams = @(0,0,"",0,"") #The first element is agreement type ID. The second element is product ID. The third element is the name. The fourth is the extradatafieldID. The fifth is the table being queried from.
 
 Switch ($ServiceDefinitionID) {
-    5 {$ProductParams[0] = 18; $ProductParams[1] = 752; $ProductParams[2] = "AGR:CONTRACT-WKSTN"; $ProductParams[3] = 778}
-    6 {$ProductParams[0] = 12; $ProductParams[1] = 751; $ProductParams[2] = "AGR:CONTRACT-SRVR-PHYSICAL"; $ProductParams[3] = 779}
-    9 {$ProductParams[0] = 12; $ProductParams[1] = 2519; $ProductParams[2] = "AGR:CONTRACT-SRVR-VIRTUAL"; $ProductParams[3] = 780}
+    5 {$ProductParams[0] = 18; $ProductParams[1] = 752; $ProductParams[2] = "AGR:CONTRACT-WKSTN"; $ProductParams[3] = 778; $ProductParams[4] = "v_mngd_svc_computers"}
+    6 {$ProductParams[0] = 12; $ProductParams[1] = 751; $ProductParams[2] = "AGR:CONTRACT-SRVR-PHYSICAL"; $ProductParams[3] = 779; $ProductParams[4] = "v_mngd_svc_computers"}
+    8 {$ProductParams[0] = 12; $ProductParams[1] = 4199; $ProductParams[2] = "AGR:CONTRACT-HYPER V HT"; $ProductParams[3] = 783; $ProductParams[4] = "v_mngd_svc_computers"}
+    9 {$ProductParams[0] = 12; $ProductParams[1] = 2519; $ProductParams[2] = "AGR:CONTRACT-SRVR-VIRTUAL"; $ProductParams[3] = 780; $ProductParams[4] = "v_mngd_svc_computers"}
+   10 {$ProductParams[0] = 12; $ProductParams[1] = 4200; $ProductParams[2] = "AGR:CONTRACT-VMWARE HT"; $ProductParams[3] = 784; $ProductParams[4] = "v_mngd_svc_networkdevices"}
     Default {
         Write-Host "There is no matching managed service definition. Exiting script."
         Exit
@@ -93,7 +95,7 @@ $AutomateCountQuery =
        SELECT
 	    cwm.CWCompanyRecID
 	    ,cwm.CWCompanyName
-	    ,wsc.Device_Count
+	    ,dev.Device_Count
 
     FROM
 	    `plugin_cw_clientmapping` AS cwm
@@ -103,15 +105,15 @@ $AutomateCountQuery =
 			    ,COUNT(ComputerID) AS Device_Count
 		    FROM
 			    clients AS cli
-			    JOIN v_mngd_svc_computers AS svc
+			    JOIN $($ProductParams[4]) AS svc
 				    ON cli.clientid = svc.clientid
 		    WHERE
 			    ServiceDefinitionID = $ServiceDefinitionID
 				
 		    GROUP BY
 			    ClientID	
-	    ) AS wsc
-	        ON cwm.ClientID = wsc.ClientID
+	    ) AS dev
+	        ON cwm.ClientID = dev.ClientID
        JOIN extrafielddata AS edf
 	        ON cwm.clientid = edf.ID
 
