@@ -1,0 +1,83 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6432</ScriptId>
+				<FolderId>277</FolderId>
+				<ScriptName>Update Per Device Billing (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-09-22
+Description: Updates the workstation and antivirus line items in CW Manage for all clients that have the API (SW) Managed Service Template selected.</ScriptNotes>
+				<Permission>1,2,3,5,</Permission>
+				<EditPermission>1,5,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQqDMBCE74W+Qx7AkKytWmXJpX+XCqUtvUezQi5RooH69q3Sgj0Ns8M3y+DF1uR6OuhBK3yMHSlAMSvegtu3wQ3klUSxcHh8ddZPDKmydUaPETtR5YP2I4MsYrGMJcsKkMU2YdcSxQLAe+1tNzzJ97Z1U/P/4ZufgzWK4qZK05x4Y+SOA5DmFdXApYQkMfnu82bz42cAxXLPevUGa4yrIt8AAAA=</LicenseData>
+				<ScriptData>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</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>e2fb669e-fd08-11ea-bec1-00155d980203</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<PackedScript>
+			<NewDataSet>
+				<Table>
+					<ScriptId>6440</ScriptId>
+					<FolderId>267</FolderId>
+					<ScriptName>Load CWM API Properties (SW)</ScriptName>
+					<ScriptNotes>Author: Shea Bryarly
+Date: 2020-10-27
+Description: Loads the properties to make API calls to CW Manage with Simpleworks' custom API Function library.</ScriptNotes>
+					<Permission>0,</Permission>
+					<EditPermission>0,</EditPermission>
+					<ComputerScript>1</ComputerScript>
+					<LocationScript>0</LocationScript>
+					<MaintenanceScript>0</MaintenanceScript>
+					<FunctionScript>0</FunctionScript>
+					<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oyCZtbS1LLipeFEXFe9rsIZe0pCnYv9cWhXoaZoc3y+DJNeR72ptoND7GjrREMSveBr9rBx8paECxcHh4dS5MDOnHQL01Y8IuTWxrCkwVCVOggEmoQFWZYtczigWB9ya4Lj4p9K71U/X/4ZsfB2d1RhlAsUm5LA1wKanmpSXiADLP7bb8/El//AygWA5ar97rQ2TS4AAAAA==</LicenseData>
+					<ScriptData>H4sIAAAAAAAEAO2WUWvCMBDH3wf7DsEXn4ppq5sDVyq1Opmi6JjPaXuMQE0lTd327ZfWtKYOO3APg+FT87//5bj7JYQO1iGnOzEigji3NwgNDjothJT+h+Akd8cU4ihFndJYEk62IIBrsUmcBCTWAodirzKJJswxB516oJY1yWjkdKGL8f2dbZh9gg3ThMDoRwAGxmavFz30sYXtskqxoei5ozetyq0F7KophqFQDaiVio8zVuhplHua0oc0T4a2TrR9orsnuqfxSLhwsOw3/6qYlzBBWQZ5vForb5HO6JYWW8qlcqYsAiZIMYx0dakjOVJowGI1YLHweS6OKaGpZQ2Qs/ZnvveC9iTOAI1Xizna8WQHXFBI0ebJX/mIydvz2PY2c8LIGyyzIKbhM3y2VUWrjtjJ91dJKse+Yv8tdk73RMBP3Kusi8CbV/DfwA+XUy+mcoTpqIl8mXMRd+vKXec+owEnvPGiH7Iugm3/H9hnWBvh+zamAWq5R1RuCxnVq4zc2iPtSqt6OJRXaWmWd/tglcptPh7JkkHRdxFPLzqr7h+cVanVj9YXhdFjrXcJAAA=</ScriptData>
+					<ScriptVersion>1</ScriptVersion>
+					<ScriptGuid>4e400763-18a0-11eb-8dee-00155d980203</ScriptGuid>
+					<ScriptFlags>0</ScriptFlags>
+					<Parameters></Parameters>
+				</Table>
+			</NewDataSet>
+			<ScriptFolder>
+				<NewDataSet>
+					<Table>
+						<FolderID>267</FolderID>
+						<ParentID>0</ParentID>
+						<Name>Simpleworks Scripts (SW)</Name>
+						<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+					</Table>
+				</NewDataSet>
+			</ScriptFolder>
+		</PackedScript>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>277</FolderID>
+					<ParentID>267</ParentID>
+					<Name>Per Device Billing (SW)</Name>
+					<GUID>914324ef-3919-4fa7-8046-2838c90ee649</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>267</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks Scripts (SW)</Name>
+					<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
