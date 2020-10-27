@@ -181,6 +181,7 @@ ForEach ($comp In $QueryResults) {
         #Check to see if there is only one line item on the agreement for device type. If so, update the line item if the count is not equal to Automate device type count.
         If ($addition.Count) {
             Write-Host "Found more than one active $($ProductParams[2]) agreement addition."
+            Continue 
         } ElseIf ($addition) {
             If ($comp.Device_Count -ne $addition.quantity) {
                 Write-Host "Setting $($ProductParams[2]) agreement addition line item from $($addition.quantity) to $($comp.Device_Count)."
