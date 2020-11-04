@@ -10,7 +10,10 @@
 				<ScriptName>Update Per Device Billing (SW)</ScriptName>
 				<ScriptNotes>Author: Shea Bryarly
 Date: 2020-09-22
-Description: Updates the workstation and antivirus line items in CW Manage for all clients that have the API (SW) Managed Service Template selected.</ScriptNotes>
+Description: Updates the workstation and antivirus line items in CW Manage for all clients that have the API (SW) Managed Service Template selected.
+
+It Glue:
+https://sw.itglue.com/337469/docs/6318049#version=published&amp;documentMode=view</ScriptNotes>
 				<Permission>1,2,3,5,</Permission>
 				<EditPermission>1,5,</EditPermission>
 				<ComputerScript>1</ComputerScript>
