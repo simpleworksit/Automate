@@ -73,13 +73,13 @@ $OneUnitAgo = Get-DomainCDR -Auth $Auth -Domain "simpleworksit.com" -Type 1 -Tim
 $TwoUnitsAgo = Get-DomainCDR -Auth $Auth -Domain "simpleworksit.com" -Type 1 -TimeSpan $TimeSpan -UnitsBack 2 -Limit 9000000 -FilterToNumber "7194760443"
 
 If ($Timespan -eq "Monthly") {
-    Write-Host "Calls Two Months Ago: $($TwoUnitsAgo.Count) -- Time Spent Talking in Seconds: $(($TwoUnitsAgo.TimeTalking | Measure-Object -Sum).Sum)`n"
-    Write-Host "Calls Last Month: $($OneUnitAgo.Count) -- Time Spent Talking in Seconds: $(($OneUnitAgo.TimeTalking | Measure-Object -Sum).Sum)`n"
-    Write-Host "`nCall Data Records for Last Month:"
+    Write-Host "Calls Two Months Ago: $($TwoUnitsAgo.Count) -- Time Spent Talking in Seconds: $(($TwoUnitsAgo.TimeTalking | Measure-Object -Sum).Sum)`r"
+    Write-Host "Calls Last Month: $($OneUnitAgo.Count) -- Time Spent Talking in Seconds: $(($OneUnitAgo.TimeTalking | Measure-Object -Sum).Sum)`r"
+    Write-Host "`rCall Data Records for Last Month:"
 } Elseif ($TimeSpan -eq "Weekly") {
-    Write-Host "Calls Two Week Ago: $($TwoUnitsAgo.Count) -- Time Spent Talking in Seconds: $(($TwoUnitsAgo.TimeTalking | Measure-Object -Sum).Sum)`n"
-    Write-Host "Calls Last Week: $($OneUnitAgo.Count) -- Time Spent Talking in Seconds: $(($OneUnitAgo.TimeTalking | Measure-Object -Sum).Sum)`n"
-    Write-Host "`nCall Data Records for Last Week:"
+    Write-Host "Calls Two Week Ago: $($TwoUnitsAgo.Count) -- Time Spent Talking in Seconds: $(($TwoUnitsAgo.TimeTalking | Measure-Object -Sum).Sum)`r"
+    Write-Host "Calls Last Week: $($OneUnitAgo.Count) -- Time Spent Talking in Seconds: $(($OneUnitAgo.TimeTalking | Measure-Object -Sum).Sum)`r"
+    Write-Host "`rCall Data Records for Last Week:"
 }
 
 $OneUnitAgo #| Format-Table -AutoSize
