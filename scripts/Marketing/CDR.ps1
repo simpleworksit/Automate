@@ -72,7 +72,7 @@ $Auth = Get-NSAuth -ClientID $ClientID -ClientSecret $ClientSecret -Username $Us
 $OneUnitAgo = Get-DomainCDR -Auth $Auth -Domain "simpleworksit.com" -Type 1 -TimeSpan $TimeSpan -UnitsBack 1 -Limit 9000000 -FilterToNumber "7194760443"
 $TwoUnitsAgo = Get-DomainCDR -Auth $Auth -Domain "simpleworksit.com" -Type 1 -TimeSpan $TimeSpan -UnitsBack 2 -Limit 9000000 -FilterToNumber "7194760443"
 
-Write-Host "===============================================================`n"
+Write-Host "===============================================================`n`n"
 
 If ($Timespan -eq "Monthly") {
     Write-Host "Calls Two Months Ago: $($TwoUnitsAgo.Count) -- Time Spent Talking in Seconds: $(($TwoUnitsAgo.TimeTalking | Measure-Object -Sum).Sum)"
@@ -84,7 +84,7 @@ If ($Timespan -eq "Monthly") {
     Write-Host "`nCall Data Records for Last Week:"
 }
 
-$OneUnitAgo | Format-Table -AutoSize
+$OneUnitAgo #| Format-Table -AutoSize
 
 Write-Host "==============================================================="
 
