@@ -14,7 +14,9 @@ $ServiceDefinitionID: This can be one of three different values and corresponds 
 The values can be:
     5 - Contract Workstation Counts and AV Counts. 
     6 - Contract Physical Server Counts.
+    8 - Contract Hyper-V Servers.
     9 - Contact SRVR Virtual Counts.
+   10 - Contract VMWare Hosts.
 
 Example:
 [script path] -cwmlib 'C:\LTShare\Transfer\swgit\Automate\lib\cwmlib.ps1' -PublicKey [Your Key here] -PrivateKey [Your Key Here]  -ClientID [Your ID here]  -ServiceDefinitionID 5
