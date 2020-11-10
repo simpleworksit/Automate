@@ -4,6 +4,9 @@ Author: Shea Bryarly
 Date: 2020-11-09
 Description: Gets the basic variables for authentication for the other Netsapian functions to work. Returns an authentication object.
 #>
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 Function Get-NSAuth() {
     [CmdletBinding()]
         Param(
