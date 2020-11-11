@@ -1,0 +1,52 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6445</ScriptId>
+				<FolderId>278</FolderId>
+				<ScriptName>Email Sales Call Data Report (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-11-10
+Description: Emails sales call data from the Netsapians API.
+Parameters: TimeSpan - Can either be set to "Weekly" or "Monthly". *Required*.
+
+This scirpt is meant to be ran on the LT Server.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oSDa1tJYlFxUvKqLFe9uskINpSRuxf68tCvU0zA5vlsGDrcl1tC37UmMxtKQBxaR4CW7TBNeT1xLFzOHu1Vo/MqSLQJ0ph4idmic9KvIMZMSUVJIl+Url8ZqdjyhmBF5rb9v+Rr6zjRur/w/ffB+s0RWkcE9JchWnNQegimeGiEsJSWLW2edN/OMnAMV80HLxBlGSzMDgAAAA</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAOWXW2/aMBTH3yftO3iVKm0PKXFCGtqhiIpLhUS3jtDtJS8mOWmtOhfZjhjffk5w2sAgm7ZuE9oT5/hcsH8+/wT6fshpLkdEEu/1K4T6G19UjnLHXyUnZXRCgUUCderALeEkAQlceAuagJ+TtN9pLOq0a5YtCWvUbfp/Vik0Sz3c72wvbGVdFzTyltjFsQumYdluaGAMS6MXARimiR0nuuiZlmnXXaqC6hid5jl0O19C/rSxq1DqDWhLr0+KtPKnURlreM1z4x0O1o5v7/jdHd9p8Mi49Ey13/JTrw2zVNK0gHL9ydaxj2JGE1qV1KaOTNMIUkmqw6ho020ieabQgsVqweKah7nszgLexlT21dZ/gwvbTguv4WUwW/gPhEOw4CQVMfBArO6pDK4KmSVEQiA2kxzcEP4I6nD3wXA0P8sFRkYKUpCcqjpGl+gneqm0QBdBVbTpM2TKldMREjTJGawy/igMlVNHfAg5SGRHpOe4YW+Jodtz49hx3QvbJOfnxAmx5XaRcSeAp+oRgCSED0KSOB6IFQcBjAE/C7MEGbdECPUFEXoAlicwJJxZyKjnBp0ManNwsn+IflNr+JiGp1VrebZST02FkSnCBZMHNNfbrzlvUjC2/lQQRmMK0ZjzjE8jpJPtbabepT/+MDImV9PZ3XxsjG+UoTO7rbStY6JtdVtoiyVfq1ldDxoaobKc6fecE6koxntCUpI1y/j3kQOX9Tz9yCcMBBoSxlD5AkZzyBXJA5d5ujsMp/sv8gfisI/purB18dfe0N2jAmO3gGmR8ss+aJ1jQvaL0j+g4nFCKDsgYPTW//IObXaJJioPojd/VtTnR3URuOXn0guL2v0HYGpf/+P6BltMa7yADQAA</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>b171f7e0-237c-11eb-8dee-00155d980203</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters>TimeSpan</Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>278</FolderID>
+					<ParentID>267</ParentID>
+					<Name>Marketing</Name>
+					<GUID>8dc2c618-aea7-4eb8-b792-8af52b826e44</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>267</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks Scripts (SW)</Name>
+					<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
