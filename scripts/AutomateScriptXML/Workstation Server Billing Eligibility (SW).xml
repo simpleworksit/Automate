@@ -1,0 +1,72 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6409</ScriptId>
+				<FolderId>277</FolderId>
+				<ScriptName>Workstation/Server Billing Eligibility (SW)*</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-08-25
+Description: This script checks to see if a computer is eligible to be billed because it has been on within 6 months. This will assist with automated billing and management of agreements. We do not want to be billing for systems that the customer is not using or doesn't have anymore.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oSNI2rZYlICpeFESL99BsISBpSBuwf68tCvW07My8HRbOtkHX40EPWkE9elQC2DzhFt2+i27AoDiwxQbHl7dhYlDVEXujx4TsfLBPkoqEpDzlRFa8rGROrhdgizjcm2D98MDQ285Nd/+Fr3+K1ihZlG2eGaSbrM2pEKipbgpDORdSmu3mU5P9+BkAtvxmvXoDietPoN0AAAA=</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAO2WUW+bMBDHn4fEd7AidUql0WAbCFkzJNqaFImGDUj7WHngTEgJRMSR+vEH1LSENWiquk6Z9oT/d8fp7nc+xDSMi3TDryinliwBMH3U21qUkjzwglZeJ2WrZAtGjeMrLeiacVa0bLNV/p2uWobHZLdlUJpnFpyO9g17UbNdmli6MV5qOGGKiZeaAiGjCo2NRFFVqOvJxFSRipss9Qt1zaN20SJdyNnmqQs75qIAcRJ2Z5fV2k0qX0u1m4SdplFH447WOlpv8cgLbqllvdVT2C7zjKfZjlX2p7Pw+VsvXaf1K81ReNwsYRmndTOlty3bSJ4p9GBBPViQepiLBUto4rgHyAqJRy4jWfrgOmAY5+vN2YpueVx2R2MOPv7g5+DKjsh9uLgYzv274ekn4M4jEtzaHjDAjT+PrkvTIAoWZFA+HdsLyeBUlpzAvymzVhl39dWzQ1AJWZKlu2sSEOE8ayLSBHwBJ8/q5FxUjPZHaIXfvPuAhAsvEgH4353puG+mv4DozhYdIFgP6WV41ue5HynEc2fuhdfEaL1A4TEBNfuAMh1OEmhgRdeMWNFMHCsmZViBS0Nn8RhTDbEDqNsX9wB1+Krrit6arvYH6UI0ebdvMz4qMLgHzIs7B98UlvZ/R39rR9VX7ah+VFfxHXfU+AtgGi3+k38CSucD6DYLAAA=</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>567f43de-83f4-11ea-ac6d-00155d980203</ScriptGuid>
+				<ScriptFlags>1</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>764</ID>
+					<Form>1</Form>
+					<Name>Last Contact &lt; 6 Months</Name>
+					<Sort>0</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Billing (SW)</Section>
+					<UnEditable>1</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill></Fill>
+					<LtGuid>e519d163-546c-483c-8ae3-1f65ec73a42e</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>true</IsRestricted>
+					<ViewPermissions>1</ViewPermissions>
+					<EditPermissions>5</EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>277</FolderID>
+					<ParentID>267</ParentID>
+					<Name>Per Device Billing (SW)</Name>
+					<GUID>914324ef-3919-4fa7-8046-2838c90ee649</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>267</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks Scripts (SW)</Name>
+					<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
