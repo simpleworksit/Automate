@@ -1,0 +1,67 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Group Expansion"
+	Type="Group">
+	<Group>
+		<NewDataSet>
+			<Table>
+				<GroupID>1954</GroupID>
+				<ParentID>1952</ParentID>
+				<Parents>,1952,1220,</Parents>
+				<Children>,</Children>
+				<depth>2</depth>
+				<Name>Systems Last Contact &gt; 6 Months (SW)</Name>
+				<FullName>Simpleworks Automations.Per Device Billing (SW).Systems Last Contact &gt; 6 Months (SW)</FullName>
+				<Permissions>0</Permissions>
+				<Template>0</Template>
+				<AutoJoinScript>1405</AutoJoinScript>
+				<Master>2</Master>
+				<LimitToParent>1</LimitToParent>
+				<Control>0</Control>
+				<ControlID>0</ControlID>
+				<Notes>This group shows all workstations and servers that have not checked in over 6 months.</Notes>
+				<MaintenanceID>0</MaintenanceID>
+				<MaintWindowApplied>2020-11-13T09:52:35-07:00</MaintWindowApplied>
+				<GroupType>6</GroupType>
+				<Priority>5</Priority>
+				<GUID>484772fb-ff79-11ea-bec1-00155d980203</GUID>
+				<NetworkJoin>0</NetworkJoin>
+				<NetworkJoinOptions>0</NetworkJoinOptions>
+				<ContactJoin>0</ContactJoin>
+				<ContactJoinOptions>0</ContactJoinOptions>
+			</Table>
+		</NewDataSet>
+		<Search>
+			<NewDataSet>
+				<Table>
+					<SensID>1405</SensID>
+					<Name>Systems Last Contact &gt; 6 Months (SW)</Name>
+					<SQL>SELECT 
+   computers.computerid as `Computer Id`,
+   computers.name as `Computer Name`,
+   clients.name as `Client Name`,
+   computers.domain as `Computer Domain`,
+   computers.username as `Computer User`,
+   IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'0') as `Computer - Extra Data Field - Billing (SW) - Last Contact &lt; 6 Months`,
+   IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'0') as `Computer - Extra Data Field - Default - Under MSP Contract`
+FROM Computers 
+LEFT JOIN inv_operatingsystem ON (Computers.ComputerId=inv_operatingsystem.ComputerId)
+LEFT JOIN Clients ON (Computers.ClientId=Clients.ClientId)
+LEFT JOIN Locations ON (Computers.LocationId=Locations.LocationID)
+LEFT JOIN ExtraFieldData edfAssigned1 ON (edfAssigned1.id=Computers.ComputerId and edfAssigned1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='e519d163-546c-483c-8ae3-1f65ec73a42e'))
+LEFT JOIN ExtraFieldData edfDefault1 ON (edfDefault1.id=0 and edfDefault1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='e519d163-546c-483c-8ae3-1f65ec73a42e'))
+LEFT JOIN ExtraFieldData edfAssigned2 ON (edfAssigned2.id=Computers.ComputerId and edfAssigned2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='45c2da7e-3bf5-11e1-92fd-c1ee63289e9e'))
+LEFT JOIN ExtraFieldData edfDefault2 ON (edfDefault2.id=0 and edfDefault2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='45c2da7e-3bf5-11e1-92fd-c1ee63289e9e'))
+ WHERE 
+((((IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'0')=0) AND (IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'0')&lt;&gt;0))))
+</SQL>
+					<QueryType>4</QueryType>
+					<ListDATA>Select||=||=||=|^Select|||||||^</ListDATA>
+					<FolderID>26</FolderID>
+					<GUID>d6e201e0-d4cb-43af-818d-9a1a88070750</GUID>
+					<SearchXML>&lt;LabTechAbstractSearch&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Extra Data Field.Billing (SW).Last Contact &amp;lt; 6 Months&lt;/lon&gt;&lt;lok&gt;Computer.Edf.e519d163-546c-483c-8ae3-1f65ec73a42e&lt;/lok&gt;&lt;lmo&gt;IsFalse&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Extra Data Field.Default.Under MSP Contract&lt;/lon&gt;&lt;lok&gt;Computer.Edf.45c2da7e-3bf5-11e1-92fd-c1ee63289e9e&lt;/lok&gt;&lt;lmo&gt;IsTrue&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/LabTechAbstractSearch&gt;</SearchXML>
+				</Table>
+			</NewDataSet>
+		</Search>
+	</Group>
+</LabTech_Expansion>
