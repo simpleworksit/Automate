@@ -1,0 +1,120 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6434</ScriptId>
+				<FolderId>277</FolderId>
+				<ScriptName>Set Do Not Bill EDFs (SW)*</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-09-24
+Description: Sets the Do Not Bill EDF and allows for adding the reason and reminder email edfs too. This script is created to set system edfs en masse.
+
+The Do Not Bill Flag needs to be either 1 or 0. 1 for true and 0 for false.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyE9bbcuSi4oXBbHFe9qumINpSBuwb68tCvU0zA7fLAMn06Dtca8HraAaHSoBbFa4Brvrgh3QKw5s4eDwcsZPDKrqEXzf6jEiJboBnzV6IpOISC452RRCFElCLmdgCwbKxhs33ND3prNT+f/hmx+DaVVWi3ibS0nvmHMqBGpaYyMo5yJN2zz7vIl//AwAW05ar97RlaYE4gAAAA==</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAOWVyWrDMBCG74W+Qy65RUSLbckQTNpmIVDa0kCvQbImIHDsYMvQx6/jKKlsaA7JodCePP8s8szH2Jqs09Ls7UxamdzfDQaTo65a0cj5py3lIbowkOlqMD4F3mQpd2ChrJJZsXkp7ObRZNnoHWRV5KP5TppsMvaSXNkyK5TMvHOO7/toUkyRJ2Qy7jo6Wcva6EQownhMKdpCjBEhIJGClCCMSRjqWGCK2emUtqAda+zP5Y5bW9ifG3tIrWvAWc6/qPNWr/Qh5imfA+lxoT3Nejro6dDjUZQ2wU2/h6fzPRW5NXkNB//ZdrHX6tnsTFtyMl1klWvIrWyHaaK+9JF8U7iAhV7AIvDPXJIo5FyC4ghwFKAgEhQJYIBiGUIc6ZQzHLk9IV2EyTAtdvu6WR6jhy6FdqkmU2/1pi6H/VPSKiBaslQgxUOJAuAMCREqlAaEKdCUaU1vIH38sK+DTP4MZM00BsEYUlpwFMScoBj0FtGUxyDUlmF6C+T2t3kdY/oLjE/a3R5fdlpckkwGAAA=</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>8b137922-fe90-11ea-bec1-00155d980203</ScriptGuid>
+				<ScriptFlags>1</ScriptFlags>
+				<Parameters>Do_Not_Bill,Reason,Email</Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>765</ID>
+					<Form>1</Form>
+					<Name>Do Not Bill</Name>
+					<Sort>1</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>1</FType>
+					<Section>Billing (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Takes the system out of billing.</Fill>
+					<LtGuid>6577aeb7-e064-4682-8e3e-9a5e96dc7306</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>766</ID>
+					<Form>1</Form>
+					<Name>Reason/Ticket Number</Name>
+					<Sort>3</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Billing (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill>Please enter a ticket number so we know why this system is excluded from billing.</Fill>
+					<LtGuid>b41da3c8-b75a-4e73-885b-c413bed23dd2</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>781</ID>
+					<Form>1</Form>
+					<Name>Reminder Email</Name>
+					<Sort>4</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Billing (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill></Fill>
+					<LtGuid>d3d0e833-bd87-4971-9edf-2c79e8bf3022</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>277</FolderID>
+					<ParentID>267</ParentID>
+					<Name>Per Device Billing (SW)</Name>
+					<GUID>914324ef-3919-4fa7-8046-2838c90ee649</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>267</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks Scripts (SW)</Name>
+					<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
