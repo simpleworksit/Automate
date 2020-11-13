@@ -1,0 +1,123 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Group Expansion"
+	Type="Group">
+	<Group>
+		<NewDataSet>
+			<Table>
+				<GroupID>1944</GroupID>
+				<ParentID>1952</ParentID>
+				<Parents>,1952,1220,</Parents>
+				<Children>,</Children>
+				<depth>2</depth>
+				<Name>Per Device Billing Eligibility (SW)</Name>
+				<FullName>Simpleworks Automations.Per Device Billing (SW).Per Device Billing Eligibility (SW)</FullName>
+				<Permissions>0</Permissions>
+				<Template>0</Template>
+				<AutoJoinScript>50</AutoJoinScript>
+				<Master>2</Master>
+				<LimitToParent>1</LimitToParent>
+				<Control>0</Control>
+				<ControlID>0</ControlID>
+				<Notes>This group assists with automating the bill for managed workstations and servers based on their type. Its main puporse is to categorize the systems based on the searches and also run the "Eligibility" scripts to check billing EDFs.</Notes>
+				<MaintenanceID>0</MaintenanceID>
+				<MaintWindowApplied>2020-11-13T09:51:34-07:00</MaintWindowApplied>
+				<GroupType>6</GroupType>
+				<Priority>5</Priority>
+				<GUID>409e2ff1-83f5-11ea-ac6d-00155d980203</GUID>
+				<NetworkJoin>1370</NetworkJoin>
+				<NetworkJoinOptions>1</NetworkJoinOptions>
+				<ContactJoin>0</ContactJoin>
+				<ContactJoinOptions>0</ContactJoinOptions>
+			</Table>
+		</NewDataSet>
+		<Search>
+			<NewDataSet>
+				<Table>
+					<SensID>50</SensID>
+					<Name>All Computers</Name>
+					<SQL>SELECT 
+   computers.computerid as `Computer Id`,
+   computers.name as `Computer Name`,
+   clients.name as `Client Name`,
+   computers.domain as `Computer Domain`,
+   computers.username as `Computer User`,
+   Computers.Name as `Computer.General.Name`
+FROM Computers 
+LEFT JOIN inv_operatingsystem ON (Computers.ComputerId=inv_operatingsystem.ComputerId)
+LEFT JOIN Clients ON (Computers.ClientId=Clients.ClientId)
+LEFT JOIN Locations ON (Computers.LocationId=Locations.LocationID)
+ WHERE 
+((Computers.Name &lt;&gt; ' '))
+</SQL>
+					<QueryType>4</QueryType>
+					<ListDATA>READONLY</ListDATA>
+					<FolderID>1</FolderID>
+					<GUID>1655c117-40f7-11e0-8c74-0050568b5553</GUID>
+					<SearchXML>&lt;LabTechAbstractSearch&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.General.Name&lt;/lon&gt;&lt;lok&gt;Computer.General.Name&lt;/lok&gt;&lt;lmo&gt;NotEqual&lt;/lmo&gt;&lt;dv&gt; &lt;/dv&gt;&lt;dk&gt; &lt;/dk&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/LabTechAbstractSearch&gt;</SearchXML>
+				</Table>
+			</NewDataSet>
+		</Search>
+		<Search>
+			<NewDataSet>
+				<Table>
+					<SensID>1370</SensID>
+					<Name>vSphere Hosts</Name>
+					<SQL>SELECT 
+   networkdevices.deviceid as `Network Device Id`,
+   networkdevices.name as `Device Name`,
+   clients.name as `Client Name`,
+   LookupDeviceCode.DeviceType as `NetworkDevice.General.Type`
+FROM NetworkDevices 
+LEFT JOIN Locations ON (NetworkDevices.LocationId=Locations.LocationID)
+LEFT JOIN Clients ON (Clients.ClientId=Locations.ClientId)
+LEFT JOIN LookupDeviceCode ON (LookupDeviceCode.DeviceCode = NetworkDevices.DeviceType)
+ WHERE 
+((LookupDeviceCode.DeviceType = 'vSphere Host'))
+</SQL>
+					<QueryType>20</QueryType>
+					<ListDATA>Select||=||=||=|^Select|||||||^</ListDATA>
+					<FolderID>33</FolderID>
+					<GUID>db869749-d8fd-4c01-aa4a-e7f2b6b4808d</GUID>
+					<SearchXML>&lt;LabTechAbstractSearch&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;NetworkDevice.General.Type&lt;/lon&gt;&lt;lok&gt;NetworkDevice.General.Type&lt;/lok&gt;&lt;lmo&gt;Equals&lt;/lmo&gt;&lt;dv&gt;vSphere Host&lt;/dv&gt;&lt;dk&gt;vSphere Host&lt;/dk&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/LabTechAbstractSearch&gt;</SearchXML>
+				</Table>
+			</NewDataSet>
+		</Search>
+		<GroupScript>
+			<NewDataSet>
+				<Table>
+					<GScriptID>401</GScriptID>
+					<GroupID>1944</GroupID>
+					<ScriptID>6409</ScriptID>
+					<ScriptType>0</ScriptType>
+					<RunTime>2020-04-21T08:00:00-06:00</RunTime>
+					<Repeat>0</Repeat>
+					<SearchID>0</SearchID>
+					<Parameters></Parameters>
+					<GroupScriptGuid>97b5a40a-381f-43ed-b3a1-5f8575695193</GroupScriptGuid>
+					<IncludeSubGroups>1</IncludeSubGroups>
+					<EffectiveStartDate>2020-04-21T00:00:00-06:00</EffectiveStartDate>
+					<DistributionWindowType>2</DistributionWindowType>
+					<DistributionWindowAmount>15</DistributionWindowAmount>
+					<ScheduleType>4</ScheduleType>
+					<Interval>1</Interval>
+					<ScheduleWeekofMonth>0</ScheduleWeekofMonth>
+					<ScheduleDayofWeek>0</ScheduleDayofWeek>
+					<RepeatType>1</RepeatType>
+					<RepeatAmount>0</RepeatAmount>
+					<RepeatStopAfter>0</RepeatStopAfter>
+					<SkipOffline>0</SkipOffline>
+					<OfflineOnly>0</OfflineOnly>
+					<WakeOffline>0</WakeOffline>
+					<WakeScript>0</WakeScript>
+					<DisableTimeZone>0</DisableTimeZone>
+					<RunScriptOnProbe>0</RunScriptOnProbe>
+					<Priority>10</Priority>
+					<Last_User>sbryarly@localhost</Last_User>
+					<Last_Date>2020-04-21T12:32:06-06:00</Last_Date>
+					<ScriptTarget>1</ScriptTarget>
+				</Table>
+			</NewDataSet>
+		</GroupScript>
+	</Group>
+</LabTech_Expansion>
