@@ -1,0 +1,46 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Search Expansion"
+	Type="Search">
+	<Search>
+		<NewDataSet>
+			<Table>
+				<SensID>1407</SensID>
+				<Name>Server Host Last Contact &lt; 6 Months (SW)</Name>
+				<SQL>SELECT 
+   computers.computerid as `Computer Id`,
+   computers.name as `Computer Name`,
+   clients.name as `Client Name`,
+   computers.domain as `Computer Domain`,
+   computers.username as `Computer User`,
+   IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'0') as `Computer - Extra Data Field - Billing (SW) - Force Billing`,
+   IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'0') as `Computer - Extra Data Field - Billing (SW) - Last Contact &lt; 6 Months`,
+   IFNULL(IFNULL(edfAssigned3.Value,edfDefault3.value),'0') as `Computer - Extra Data Field - Billing (SW) - Do Not Bill`,
+   IFNULL(IFNULL(edfAssigned4.Value,edfDefault4.value),'0') as `Computer - Extra Data Field - Default - Under MSP Contract`,
+   IF(INSTR(computers.os, 'server')&gt;0, 1, 0) as `Computer.OS.IsServer`,
+   IF((Computers.flags &amp; 4096) &lt;&gt; 0, 1, 0) as `Computer.Hardware.IsVirtualHost`,
+   IF((Computers.flags &amp; 2048) &lt;&gt; 0, 1, 0) as `Computer.Hardware.IsVirtual`
+FROM Computers 
+LEFT JOIN inv_operatingsystem ON (Computers.ComputerId=inv_operatingsystem.ComputerId)
+LEFT JOIN Clients ON (Computers.ClientId=Clients.ClientId)
+LEFT JOIN Locations ON (Computers.LocationId=Locations.LocationID)
+LEFT JOIN ExtraFieldData edfAssigned1 ON (edfAssigned1.id=Computers.ComputerId and edfAssigned1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='2691c37a-79cc-4f15-95d2-9bdc0b0c6a01'))
+LEFT JOIN ExtraFieldData edfDefault1 ON (edfDefault1.id=0 and edfDefault1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='2691c37a-79cc-4f15-95d2-9bdc0b0c6a01'))
+LEFT JOIN ExtraFieldData edfAssigned2 ON (edfAssigned2.id=Computers.ComputerId and edfAssigned2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='e519d163-546c-483c-8ae3-1f65ec73a42e'))
+LEFT JOIN ExtraFieldData edfDefault2 ON (edfDefault2.id=0 and edfDefault2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='e519d163-546c-483c-8ae3-1f65ec73a42e'))
+LEFT JOIN ExtraFieldData edfAssigned3 ON (edfAssigned3.id=Computers.ComputerId and edfAssigned3.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='6577aeb7-e064-4682-8e3e-9a5e96dc7306'))
+LEFT JOIN ExtraFieldData edfDefault3 ON (edfDefault3.id=0 and edfDefault3.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='6577aeb7-e064-4682-8e3e-9a5e96dc7306'))
+LEFT JOIN ExtraFieldData edfAssigned4 ON (edfAssigned4.id=Computers.ComputerId and edfAssigned4.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='45c2da7e-3bf5-11e1-92fd-c1ee63289e9e'))
+LEFT JOIN ExtraFieldData edfDefault4 ON (edfDefault4.id=0 and edfDefault4.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='45c2da7e-3bf5-11e1-92fd-c1ee63289e9e'))
+ WHERE 
+((((IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'0')&lt;&gt;0) OR (((IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'0')&lt;&gt;0) AND (IFNULL(IFNULL(edfAssigned3.Value,edfDefault3.value),'0')=0) AND (IFNULL(IFNULL(edfAssigned4.Value,edfDefault4.value),'0')&lt;&gt;0) AND (IF(INSTR(computers.os, 'server')&gt;0, 1, 0)&lt;&gt;0) AND (IF((Computers.flags &amp; 4096) &lt;&gt; 0, 1, 0)&lt;&gt;0) AND (IF((Computers.flags &amp; 2048) &lt;&gt; 0, 1, 0)=0))))))
+</SQL>
+				<QueryType>4</QueryType>
+				<ListDATA>Select||=||=||=|^Select|||||||^</ListDATA>
+				<FolderID>26</FolderID>
+				<GUID>732d3a91-9a97-4d98-80bd-931d1a0874ab</GUID>
+				<SearchXML>&lt;LabTechAbstractSearch&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;OrNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Extra Data Field.Billing (SW).Force Billing&lt;/lon&gt;&lt;lok&gt;Computer.Edf.2691c37a-79cc-4f15-95d2-9bdc0b0c6a01&lt;/lok&gt;&lt;lmo&gt;IsTrue&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Extra Data Field.Billing (SW).Last Contact &amp;lt; 6 Months&lt;/lon&gt;&lt;lok&gt;Computer.Edf.e519d163-546c-483c-8ae3-1f65ec73a42e&lt;/lok&gt;&lt;lmo&gt;IsTrue&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Extra Data Field.Billing (SW).Do Not Bill&lt;/lon&gt;&lt;lok&gt;Computer.Edf.6577aeb7-e064-4682-8e3e-9a5e96dc7306&lt;/lok&gt;&lt;lmo&gt;IsFalse&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Extra Data Field.Default.Under MSP Contract&lt;/lon&gt;&lt;lok&gt;Computer.Edf.45c2da7e-3bf5-11e1-92fd-c1ee63289e9e&lt;/lok&gt;&lt;lmo&gt;IsTrue&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.OS.IsServer&lt;/lon&gt;&lt;lok&gt;Computer.OS.IsServer&lt;/lok&gt;&lt;lmo&gt;IsTrue&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Hardware.IsVirtualHost&lt;/lon&gt;&lt;lok&gt;Computer.Hardware.IsVirtualHost&lt;/lok&gt;&lt;lmo&gt;IsTrue&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;Computer.Hardware.IsVirtual&lt;/lon&gt;&lt;lok&gt;Computer.Hardware.IsVirtual&lt;/lok&gt;&lt;lmo&gt;IsFalse&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/LabTechAbstractSearch&gt;</SearchXML>
+			</Table>
+		</NewDataSet>
+	</Search>
+</LabTech_Expansion>
