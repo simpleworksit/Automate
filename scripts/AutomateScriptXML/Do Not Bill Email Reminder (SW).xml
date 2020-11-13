@@ -1,0 +1,72 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6433</ScriptId>
+				<FolderId>277</FolderId>
+				<ScriptName>Do Not Bill Email Reminder (SW)*</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2020-09-24
+Description: Sends an email to the Reminder Email address under the Billing (SW) section in computer EDFs.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPwQrCMBBE74L/kA9oSdI2tpYlFxUvCqLFe9puMQfTkCZg/15bFOppmB3eLAMn3aAZcK+8klCNFiUHOitcg9n1wXh0kgFdODi8rHYTg7J6BDe0aozIDa3HZ42OJFlEEpYwIspElNmGXM5AFwzcGqetv6MbdG+m8v/DNz8G3UqVqxwx7eIOCxVzjiquseExY1yIdlt83qQ/fgaALietV2+qsOLG4gAAAA==</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAOWX32/aMBDH35H4H26VeFtKfkADFYvKClRIXVeJaXt2kkuxmsSR7XT98+cEp0sykm1apYntifve2ee7jw5sFruA00yuiCTecACwOGhRCiXXz5KTIrqhGIcCxlXgnnCSoERe893EzCdxzXFI9lktoiz1rMW46Wisuslp6BGXuIhOZEQ4I4ZlITF8DCzDNK3pNJzPTNt0qizlhrLmcb1onW4nMXvpYhlIXYC2tH+Tp6XehkWspupNWq2m7ZZ2WnrS0tMaD8alZ6p6i0/tu2appGmOhf/F1rGP4pYmtNxSmTqyTUNMJSmbUdG6rCP5TqEHi92HpeDdBcYLndDEmeMYfjhzjcnctYw5hpFhB+4cZ37kmLZKrhc3GHqjgCVZruaHhiO9xG5i9dYflttbHXP+YcRuz+x5Fx38rko6V8fRwXMSX4qMBPjuLOMokD/hmQfHWRbNaauPqXVKTG2zB6nVNZJCcpo+KF55LF9/KO1TAuj2AawzaEO0Oyby934jnf+ClflrrLzL3fpuZdQz9X9VJ6dEz7LnPfjM4+j+8AqenhQgpw/Qj7PxuqguTgmVPekh1bwxO98jqXrWjiDiLIFREFNV6MFDU1gxuGMS3tM4hp2qPxcdl8QuzzIF7e1wMBy0Eu+JALnHRq71agNRTB4g2GPwiGFx1vUXWOaSJUTiOdzHSAQCxyeKX9V2KqDKCpKBQAQaAZWQIqpHunL5CEjVOVxtkpSrnIyDrw5TVsT4eVHZpz1JH8WbjmfBT+bC/QtzUWn9b+UbmfaMSrwMAAA=</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>a7a7ee3f-fe8a-11ea-bec1-00155d980203</ScriptGuid>
+				<ScriptFlags>1</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ExtraDataField>
+			<NewDataSet>
+				<Table>
+					<ID>781</ID>
+					<Form>1</Form>
+					<Name>Reminder Email</Name>
+					<Sort>4</Sort>
+					<NoBreak>0</NoBreak>
+					<FType>0</FType>
+					<Section>Billing (SW)</Section>
+					<UnEditable>0</UnEditable>
+					<Collapsed>0</Collapsed>
+					<Fill></Fill>
+					<LtGuid>d3d0e833-bd87-4971-9edf-2c79e8bf3022</LtGuid>
+					<IsPassword>false</IsPassword>
+					<IsEncrypted>false</IsEncrypted>
+					<IsHidden>false</IsHidden>
+					<IsRestricted>false</IsRestricted>
+					<ViewPermissions></ViewPermissions>
+					<EditPermissions></EditPermissions>
+				</Table>
+			</NewDataSet>
+		</ExtraDataField>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>277</FolderID>
+					<ParentID>267</ParentID>
+					<Name>Per Device Billing (SW)</Name>
+					<GUID>914324ef-3919-4fa7-8046-2838c90ee649</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>267</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks Scripts (SW)</Name>
+					<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
