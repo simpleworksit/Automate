@@ -1,0 +1,36 @@
+﻿<LabTech_Expansion
+	Version="200.342"
+	Name="LabTech Search Expansion"
+	Type="Search">
+	<Search>
+		<NewDataSet>
+			<Table>
+				<SensID>1401</SensID>
+				<Name>vSphere Hosts Last Contact &lt; 6 Months (SW)</Name>
+				<SQL>SELECT 
+   networkdevices.deviceid as `Network Device Id`,
+   networkdevices.name as `Device Name`,
+   clients.name as `Client Name`,
+   LookupDeviceCode.DeviceType as `NetworkDevice.General.Type`,
+   IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'0') as `NetworkDevice - Extra Data Field - Billing - Last Contact &lt; 6 Months`,
+   IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'0') as `NetworkDevice - Extra Data Field - Billing - Do Not Bill`
+FROM NetworkDevices 
+LEFT JOIN Locations ON (NetworkDevices.LocationId=Locations.LocationID)
+LEFT JOIN Clients ON (Clients.ClientId=Locations.ClientId)
+LEFT JOIN LookupDeviceCode ON (LookupDeviceCode.DeviceCode = NetworkDevices.DeviceType)
+LEFT JOIN ExtraFieldData edfAssigned1 ON (edfAssigned1.id=NetworkDevices.DeviceID and edfAssigned1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='837c0c9b-b9f2-476d-998f-4d46440f2cf4'))
+LEFT JOIN ExtraFieldData edfDefault1 ON (edfDefault1.id=0 and edfDefault1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='837c0c9b-b9f2-476d-998f-4d46440f2cf4'))
+LEFT JOIN ExtraFieldData edfAssigned2 ON (edfAssigned2.id=NetworkDevices.DeviceID and edfAssigned2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='dcb55cf9-9160-4106-b9fd-fd1cb7b84fd3'))
+LEFT JOIN ExtraFieldData edfDefault2 ON (edfDefault2.id=0 and edfDefault2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='dcb55cf9-9160-4106-b9fd-fd1cb7b84fd3'))
+ WHERE 
+((((LookupDeviceCode.DeviceType = 'vSphere Host') AND (IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'0')&lt;&gt;0) AND (IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'0')=0))))
+</SQL>
+				<QueryType>20</QueryType>
+				<ListDATA>Select||=||=||=|^Select|||||||^</ListDATA>
+				<FolderID>26</FolderID>
+				<GUID>8eb84ab9-0aeb-4588-b280-e964112739cb</GUID>
+				<SearchXML>&lt;LabTechAbstractSearch&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;AndNode&lt;/st&gt;&lt;cn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;NetworkDevice.General.Type&lt;/lon&gt;&lt;lok&gt;NetworkDevice.General.Type&lt;/lok&gt;&lt;lmo&gt;Equals&lt;/lmo&gt;&lt;dv&gt;vSphere Host&lt;/dv&gt;&lt;dk&gt;vSphere Host&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;NetworkDevice.Extra Data Field.Billing.Last Contact &amp;lt; 6 Months&lt;/lon&gt;&lt;lok&gt;NetworkDevice.Edf.837c0c9b-b9f2-476d-998f-4d46440f2cf4&lt;/lok&gt;&lt;lmo&gt;IsTrue&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;asn&gt;&lt;st&gt;ComparisonNode&lt;/st&gt;&lt;lon&gt;NetworkDevice.Extra Data Field.Billing.Do Not Bill&lt;/lon&gt;&lt;lok&gt;NetworkDevice.Edf.dcb55cf9-9160-4106-b9fd-fd1cb7b84fd3&lt;/lok&gt;&lt;lmo&gt;IsFalse&lt;/lmo&gt;&lt;dv&gt;NULL&lt;/dv&gt;&lt;dk&gt;NULL&lt;/dk&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/cn&gt;&lt;/asn&gt;&lt;/LabTechAbstractSearch&gt;</SearchXML>
+			</Table>
+		</NewDataSet>
+	</Search>
+</LabTech_Expansion>
