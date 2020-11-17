@@ -151,6 +151,23 @@ Try {
     }
 }
 
+$DN = "OU=Disabled Systems,$ComputersOU"
+
+Try {
+    $WorkstationsOU = Get-ADOrganizationalUnit -Identity $DN -ErrorAction Stop
+    Write-Host "Disabled Systems OU has been found."
+
+} Catch {
+    Write-Host "Could not find Disabled Systems OU. Attempting to build it."
+
+    Try {
+        $WorkstationsOU = New-ADOrganizationalUnit -Name 'Disabled Systems' -Path $ComputersOU.DistinguishedName -PassThru -ErrorAction Stop
+        Write-Host "Disabled Systems OU has been created."
+    } Catch {
+        Write-Host "Disabled Systems OU has failed to be created. $_"
+    }
+}
+
 #Group Organizational Units
 
 $DN = "OU=Distribution Groups,$GroupsOU"
