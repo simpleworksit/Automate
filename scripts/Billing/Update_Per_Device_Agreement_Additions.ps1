@@ -88,8 +88,8 @@ If (Get-Module -ListAvailable -Name SimplySQL) {
 }
 
 $Auth = Get-CWMAuth -PublicKey $PublicKey -PrivateKey $PrivateKey -ClientID $ClientID -ErrorAction Stop
-$DBPW = ConvertTo-SecureString 'QOxgJAm3kSChqw_9' -AsPlainText -Force
-$Credentials = New-Object System.Management.Automation.PSCredential (“swautomate”, $DBPW)
+$DBPW = ConvertTo-SecureString 'D1PN3BI7BaAB6DPm' -AsPlainText -Force
+$Credentials = New-Object System.Management.Automation.PSCredential (“mysqladmin”, $DBPW)
 $SomethingChanged = 0
 
 $AutomateCountQuery = 
