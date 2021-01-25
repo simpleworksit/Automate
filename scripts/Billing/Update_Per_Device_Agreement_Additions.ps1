@@ -130,7 +130,7 @@ $AutomateCountQuery =
     "
 
 Try {
-    $DBSession = Open-MySqlConnection -ConnectionName "PSConnection" -Server "SVR-SW-LT01" -Database "labtech" -Credential $Credentials
+    $DBSession = Open-MySqlConnection -ConnectionName "PSConnection" -Server "localhost" -Database "labtech" -Credential $Credentials
 } Catch {
     Throw $_
 }
