@@ -1,0 +1,139 @@
+﻿<LabTech_Expansion
+	Version="210.27"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6475</ScriptId>
+				<FolderId>275</FolderId>
+				<ScriptName>Cleanup Network Detective Repository (SW)</ScriptName>
+				<ScriptNotes>Author: Shea Bryarly
+Date: 2021-02-09
+Description: Meant to be ran on SVR-SW-TS02 specifically. The script deletes Network Detective Scan files that match the retired systems in Automate. Use SET-CLIENTID to run for one customer. Requires Client ID.
+
+The "Network Detective Repository" EDF must be set for each ND Company under Info &gt; Administration (SW). Log Files are generated for each pass under C:\Simpleworks\Scripts\Logs\Cleanup_ND_Repository_(date).log
+
+The ND Repository can be found under C:\Program Files (x86)\RapidFireTools\Server\repository.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPQQrCMBRE94J3yAEa8n9qtS2fbNS6URAV92kTIZu0pA3Y20uLQl0NM8MbGDq7xvreHvSgFT3GziokMSvdot+30Q82KCCxcHR8dy5MjFVVcEaPCatsHaIOI4MsYRIkMsQyLcqNZNcLiQVB9ya4bnja0LvWT9P/wbc/RWeUlIi7V13wbQ6GI9qa6zxtOABmmSlykJD++BkgsTy0Xn0AXAsn9+AAAAA=</LicenseData>
+				<ScriptData>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</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>22117fb9-680d-11eb-a83c-00155d980203</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters>SET_CLIENTID</Parameters>
+			</Table>
+		</NewDataSet>
+		<PackedScript>
+			<NewDataSet>
+				<Table>
+					<ScriptId>6451</ScriptId>
+					<FolderId>279</FolderId>
+					<ScriptName>Get Current Drive (SW)</ScriptName>
+					<ScriptNotes></ScriptNotes>
+					<Permission>0,</Permission>
+					<EditPermission>0,</EditPermission>
+					<ComputerScript>1</ComputerScript>
+					<LocationScript>0</LocationScript>
+					<MaintenanceScript>0</MaintenanceScript>
+					<FunctionScript>0</FunctionScript>
+					<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyE9b+8OSi4oXFdHiPW23kINpSRuxb68tCvU0zA7fLANHU6HtcacHraAYO1QC2Kxw9XbbejugUxzYwsH+1Rk3MagKj32tx4Cc2yc+SnREJAGRXHIS51zkoSCXE7AFAbfKmW64o+tNa6fq/8M3P3hTKx3JRFSJpDJtNlQILGkWNRnlXMRxnaWfN+GPnwFgy0Hr1Rt9/Nu04AAAAA==</LicenseData>
+					<ScriptData>H4sIAAAAAAAEANWUUWvCMBDH3wW/QxAflFHbxNba4YJjVSmMbSj4Hts4AjWVmI59/LVpqmnBsrexp97//snl7sfRxS4W7CxDIgnu9wBYVPqiRCFX31KQ0l0zmiYXYNfGBxHkRCUVRm6TZgeSGomq2L44xDKO4cJuJhqnNjlLMHGRD2MfWWh+nFkQ0oMVuMfAchzoeUkwd5AzrauoC6pn22xal9tJer5O8RxL3YCOdH6dc6WjpPQMZQ4JW0Ojlp62tNvSnsEjExI7Rb/lV+deMi4Zz2mZv8bae7+8shNTV+pQOxFPKJdEDVO4pjSR3Ch0YEEdWNDUuw+mfFlHDUB4GAr2RcETGA1Hn1RaaRar3sYTZUzeitUZgwcweBz0e1sqc8FBdUcXRN2Erw+7TdI43Eb7lfa8/0sd+h3riGd3qC/V9MvfIWwvaQc6+Afoaq1/TD/mvmhRpwQAAA==</ScriptData>
+					<ScriptVersion>1</ScriptVersion>
+					<ScriptGuid>a4271c72-28f6-11eb-94f9-00155d980203</ScriptGuid>
+					<ScriptFlags>0</ScriptFlags>
+					<Parameters></Parameters>
+				</Table>
+			</NewDataSet>
+			<ScriptFolder>
+				<NewDataSet>
+					<Table>
+						<FolderID>279</FolderID>
+						<ParentID>267</ParentID>
+						<Name>Utilities (SW)</Name>
+						<GUID>76455b1f-41f4-4bbb-b986-49872c84756d</GUID>
+					</Table>
+				</NewDataSet>
+			</ScriptFolder>
+			<ScriptFolder>
+				<NewDataSet>
+					<Table>
+						<FolderID>267</FolderID>
+						<ParentID>0</ParentID>
+						<Name>Simpleworks Scripts (SW)</Name>
+						<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+					</Table>
+				</NewDataSet>
+			</ScriptFolder>
+		</PackedScript>
+		<PackedScript>
+			<NewDataSet>
+				<Table>
+					<ScriptId>6450</ScriptId>
+					<FolderId>279</FolderId>
+					<ScriptName>Create Script Log (SW)</ScriptName>
+					<ScriptNotes>Needs the parameter @LOG_FILE_NAME@ and @Drive@ populated. No Spaces are allowed.
+
+Creates @LOG_PATH@ variable to be used in other scripts.</ScriptNotes>
+					<Permission>0,</Permission>
+					<EditPermission>0,</EditPermission>
+					<ComputerScript>1</ComputerScript>
+					<LocationScript>0</LocationScript>
+					<MaintenanceScript>0</MaintenanceScript>
+					<FunctionScript>0</FunctionScript>
+					<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyKZ/NGXJRcWLFVHx3jZbyMG0pK3Yt9eKQj0Ns8M3y+DB1uR62pZDqfE6daQlio/ieXSbdnQDeQ0oFg53z876mSFdtM6UU8CO7YPuFXkm04CFEAKTkEeQQ8ZOBYoFgZfa2264ke9t6+bq/8M334/W6CaGNDZZzcMsVVxKqriKG8UBZJIYlb3/RD/+A6BYDlqvXjyq1bDgAAAA</LicenseData>
+					<ScriptData>H4sIAAAAAAAEAOWYXY+aQBSG7038DxPixTYtCoiubiyBrGJNqG7E7N6QGIRxJUUwwxBrmv73jsPgIhWy25puSG9kzpkzxzOP73zgwHSQt8NDG9tKvQbAILEjahBz9B0j+9ire9B3I9BKOx5sZG8hhijjG/vhyvYzjiTZIwnywkARB61zx1nUOPZcZS0LXdntObzU6/Z5UYQrvi+v+7wgiJ2O2+8JktBOs9ABtOZWtmiWzsRwd5qF5mBWAGsxvx4H1J64x76MlZ2kmJu0lLPbOVvO2Z0MjxBhRSD1Hp/Mdx8G2AtiePSf2qxvFhne1qND0ibrmQQuDLBNJ0N6s2YWyQuFEixSCZZboZiLYszGS31ijJZT7eto0GLeM1ZHrqxVyky50zWSacii5f+E4HA+efyX5MQqkZPKyIkF1Exvu/PhPkTfIottC5YRPkeXYSYSnhnD0Xz5oC2+sKj2mxa0VCmo7U4JVaGAakMPfReiBxtvwGfAqVS3Kgc+As6in2oOpMrVaw0T2wgvvC0kY27GEPPkIIGA10O0tTGIPpAQ3fMhi3gJb87hzrcdeMPdcZ84Lo2b2jSOfVe676jLU5Im+aE5FsxKzRaeFntKVq/Vawt0AD+SyTbWxE/GTOGen2C4BTwdlk3B0xpeqqFxi8MOgqOLTs0hjxFCIUp+AmDicJfkn0McowCcyqvXfoJ7GzubtIDFBoV70FiSjleufeHyqqeyzui5c6bXdpX0Kt6WnMxKt0CvagpAfR3I/AovByhXCqAolwD8DdQrT6HcqfO2DbNTJX5SvwRfkhL44TPY2BFYQRgAB0Gyzbkgih0HRtE69v1D8zLdv7xJdq/NUX63e9DsaWrMtOHSfCKCLJCiVCBFXTPM0R8J8bZSQuyVAIz2zx62tBiH5GiFlu+trGhPZNncRUU3JXaIW5duTPmxb9w+c5h7VdKpWLbgr/wq2K8UmHbZTnh+Hlx3nxMr9cIniSU37CsLSHyPF7rUZn8a/QJSQYkZQxIAAA==</ScriptData>
+					<ScriptVersion>1</ScriptVersion>
+					<ScriptGuid>f4064d8c-2869-11eb-94f9-00155d980203</ScriptGuid>
+					<ScriptFlags>0</ScriptFlags>
+					<Parameters></Parameters>
+				</Table>
+			</NewDataSet>
+			<ScriptFolder>
+				<NewDataSet>
+					<Table>
+						<FolderID>279</FolderID>
+						<ParentID>267</ParentID>
+						<Name>Utilities (SW)</Name>
+						<GUID>76455b1f-41f4-4bbb-b986-49872c84756d</GUID>
+					</Table>
+				</NewDataSet>
+			</ScriptFolder>
+			<ScriptFolder>
+				<NewDataSet>
+					<Table>
+						<FolderID>267</FolderID>
+						<ParentID>0</ParentID>
+						<Name>Simpleworks Scripts (SW)</Name>
+						<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+					</Table>
+				</NewDataSet>
+			</ScriptFolder>
+		</PackedScript>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>275</FolderID>
+					<ParentID>267</ParentID>
+					<Name>Server Scripts (SW)</Name>
+					<GUID>e324fbdf-5aa3-4d87-9ebf-50ef88bd3a5b</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>267</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Simpleworks Scripts (SW)</Name>
+					<GUID>75efcd8f-c6f4-4147-a7a1-dfef59dd0e6f</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
